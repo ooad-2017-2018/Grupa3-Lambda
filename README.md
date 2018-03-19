@@ -40,3 +40,18 @@ Administrator dodaje i briše račune uposlenih u ambasadi. Također ima pristup
 - Print vize samo ako je dodijeljenja osobi
 - Administrator dodaje/briše račune uposlenika
 - Administrator mijenja sadržaj templatea emaila.
+
+## Akteri
+
+- Podnosilac prijave
+	- Popunjavanje prijave
+- Uposlenik
+	- Potvrđivanje/odbijanje prijave
+	- Pregled izvještaja 
+	- Slanje maila
+	- Printanje vize koja je prošla kroz tombolu
+- Administrator 
+	- Pokretanje tombole
+	- Uređivanje templatea 
+	- Slanje mailova
+	- Kreiranje/brisanje/ažuriranje računa uposlenika
