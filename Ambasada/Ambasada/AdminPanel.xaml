@@ -7,11 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="KreiranjeBrisanjeUposlenika" Content="Kreiranje/brisanje uposlenika" HorizontalAlignment="Left" Margin="423,456,0,0" VerticalAlignment="Top" Height="111" Width="391" Click="KreiranjeBrisanjeUposlenika_Click"/>
-        <Button x:Name="PokretanjeTombole" Content="Pokretanje tombole" HorizontalAlignment="Left" Margin="424,626,0,0" VerticalAlignment="Top" Height="109" Width="391"/>
-        <Button Content="Uređivanje templejta za email" HorizontalAlignment="Left" Margin="423,775,0,0" VerticalAlignment="Top" Height="109" Width="392"/>
-        <Image x:Name="Logo" HorizontalAlignment="Left" Height="393" Margin="423,0,0,0" VerticalAlignment="Top" Width="392"/>
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="KreiranjeBrisanjeUposlenika" Content="Kreiranje/brisanje uposlenika" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="45" Width="261" Click="KreiranjeBrisanjeUposlenika_Click"/>
+        <Button x:Name="PokretanjeTombole" Content="Pokretanje tombole" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="53" Width="261"/>
+        <Button Content="Uređivanje templejta za email" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Height="67" Width="261"/>
 
-    </Grid>
+    </RelativePanel>
 </Page>

@@ -8,9 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="Kreiraj racun" HorizontalAlignment="Left" Margin="56,742,0,0" VerticalAlignment="Top" Height="135" Width="573"/>
-        <Button Content="Obriši/ažuriraj račun" HorizontalAlignment="Left" Margin="843,741,0,0" VerticalAlignment="Top" Height="136" Width="573"/>
-        <Image HorizontalAlignment="Left" Height="338" Margin="459,0,0,0" VerticalAlignment="Top" Width="608"/>
+        <Button Content="Kreiraj racun" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="60" Width="179"/>
+        <Button Content="Obriši/ažuriraj račun" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="60" Width="179"/>
 
     </Grid>
 </Page>
