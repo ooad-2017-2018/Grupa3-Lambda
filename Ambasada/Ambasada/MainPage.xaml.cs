@@ -26,5 +26,10 @@ namespace Ambasada
         {
             this.InitializeComponent();
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof (AdminPanel));
+        }
     }
 }
