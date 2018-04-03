@@ -98,6 +98,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BrisanjeAzuriranjeRacuna.xaml.cs">
+      <DependentUpon>BrisanjeAzuriranjeRacuna.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KreiranjeRacuna.xaml.cs">
+      <DependentUpon>KreiranjeRacuna.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -128,6 +134,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="AdminPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BrisanjeAzuriranjeRacuna.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KreiranjeRacuna.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
