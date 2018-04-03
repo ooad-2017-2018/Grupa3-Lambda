@@ -111,6 +111,9 @@
     <Compile Include="UposleniciEdit.xaml.cs">
       <DependentUpon>UposleniciEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UredjivanjeTemplejtaZaEmail.xaml.cs">
+      <DependentUpon>UredjivanjeTemplejtaZaEmail.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -150,6 +153,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UposleniciEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UredjivanjeTemplejtaZaEmail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
