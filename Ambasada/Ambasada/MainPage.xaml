@@ -9,11 +9,11 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RenderTransformOrigin="0.507,0.517" Margin="0,0,0,0">
         <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="228,501,0,0" VerticalAlignment="Top" Height="56" Width="158" Click="LoginButton_Click"/>
-        <TextBox x:Name="PasswordTB" HorizontalAlignment="Left" Margin="185,414,0,0" Text="" VerticalAlignment="Top" Width="247" Height="43"/>
         <TextBlock HorizontalAlignment="Left" Margin="186,279,0,0" Text="Username:" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="186,389,0,0" Text="Password:" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Image x:Name="LogoElektrotehna" HorizontalAlignment="Left" Height="191" Margin="185,10,0,0" VerticalAlignment="Top" Width="247" Source="C:\Users\Jemo\Desktop\LogoElektrotehna.jpg"/>
         <TextBox x:Name="UsernameTB" HorizontalAlignment="Left" Margin="186,304,0,0" Text="" VerticalAlignment="Top" Width="247" Height="43"/>
+        <PasswordBox x:Name="pwbox" HorizontalAlignment="Left" Margin="185,414,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.067,0.728" Width="247" Height="40"/>
 
     </Grid>
 </Page>
