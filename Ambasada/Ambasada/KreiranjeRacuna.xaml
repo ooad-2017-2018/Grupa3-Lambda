@@ -14,7 +14,7 @@
         <TextBox HorizontalAlignment="Left" Margin="324,243,0,0" Text="" VerticalAlignment="Top" Width="316"/>
         <TextBlock HorizontalAlignment="Left" Margin="324,280,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="324,305,0,0" Text="" VerticalAlignment="Top" Width="316"/>
-        <Button x:Name="RregistrujUposlenikaB" Content="Registruj uposlenika" HorizontalAlignment="Left" Margin="324,371,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="RregistrujUposlenikaB" Content="Registruj uposlenika" HorizontalAlignment="Left" Margin="324,378,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
