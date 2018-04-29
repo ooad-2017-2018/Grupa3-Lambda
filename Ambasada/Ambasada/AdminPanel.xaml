@@ -9,8 +9,8 @@
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button x:Name="KreiranjeBrisanjeUposlenika" Content="Kreiranje/brisanje uposlenika" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="45" Width="261" Click="KreiranjeBrisanjeUposlenika_Click"/>
-        <Button x:Name="PokretanjeTombole" Content="Pokretanje tombole" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="53" Width="261"/>
-        <Button Content="Uređivanje templejta za email" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Height="67" Width="261"/>
+        <Button x:Name="PokretanjeTombole" Content="Pokretanje tombole" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="53" Width="261" Click="PokretanjeTombole_Click"/>
+        <Button Content="Uređivanje templejta za email" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Height="67" Width="261" Click="Button_Click"/>
 
     </RelativePanel>
 </Page>

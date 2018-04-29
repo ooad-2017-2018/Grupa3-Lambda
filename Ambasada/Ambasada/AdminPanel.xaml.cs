@@ -31,5 +31,15 @@ namespace Ambasada
         {
             this.Frame.Navigate(typeof(UposleniciEdit));
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(UredjivanjeTemplejtaZaEmail));
+        }
+
+        private void PokretanjeTombole_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
