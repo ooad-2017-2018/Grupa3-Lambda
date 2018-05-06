@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +28,38 @@ namespace Ambasada
         public UposleniciEdit()
         {
             this.InitializeComponent();
+            Ucitaj();
+        }
+
+        void Ucitaj() {
+            const string GetProductsQuery = "select username from uposlenici";
+            Debug.WriteLine("Ucitavam...");
+
+            var uposlenici = new ObservableCollection<Uposlenik>();
+            try {
+                Debug.WriteLine("Spajam sam na bazu");
+                using (SqlConnection conn = new SqlConnection(App.connectionString)) {
+                    Debug.WriteLine("Spojen sam na bazu");
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open) {
+                        using (SqlCommand cmd = conn.CreateCommand()) {
+                            cmd.CommandText = GetProductsQuery;
+                            using (SqlDataReader reader = cmd.ExecuteReader()) {
+                                while (reader.Read()) {
+                                    var uposlenik = new Uposlenik();
+                                    uposlenik.Username = reader.GetString(0);
+                                    uposlenici.Add(uposlenik);
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (Exception eSql) {
+                Debug.WriteLine(eSql);
+            }
+
+            ListaUposlenika.ItemsSource = uposlenici;
+
         }
     }
 }
