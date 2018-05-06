@@ -9,8 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button Content="Kreiraj racun" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="60" Width="179"/>
-        <Button Content="Obriši/ažuriraj račun" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" Height="60" Width="179" Click="Button_Click"/>
-        <ListView x:Name="ListaUposlenika" HorizontalAlignment="Left" Height="289" Margin="10,75,0,0" VerticalAlignment="Top" Width="179"/>
+        <Button Content="Obriši/ažuriraj račun" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Height="60" Width="179" Click="Button_Click"/>
 
     </Grid>
 </Page>

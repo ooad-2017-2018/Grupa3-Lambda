@@ -8,8 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListBox x:Name="ListaUposlenika" HorizontalAlignment="Left" Height="532" Margin="10,458,0,0" VerticalAlignment="Top" Width="391"/>
-        <TextBox x:Name="PretrazivanjeUposlenikaTB" HorizontalAlignment="Left" Margin="10,410,0,0" Text="Search" VerticalAlignment="Top" Width="391"/>
+        <ListBox x:Name="ListaUposlenika" HorizontalAlignment="Left" Height="532" Margin="28,207,0,0" VerticalAlignment="Top" Width="391"/>
+        <TextBox x:Name="PretrazivanjeUposlenikaTB" HorizontalAlignment="Left" Margin="28,132,0,0" Text="Search" VerticalAlignment="Top" Width="391"/>
         <TextBlock HorizontalAlignment="Left" Margin="644,107,0,0" Text="JMBG uposlenika" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="644,132,0,0" Text="" VerticalAlignment="Top" Width="315"/>
         <TextBlock HorizontalAlignment="Left" Margin="644,182,0,0" Text="Ime i prezime uposlenika" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -17,9 +17,9 @@
         <TextBlock HorizontalAlignment="Left" Margin="643,263,0,0" Text="Username" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="644,287,0,0" Text="" VerticalAlignment="Top" Width="315"/>
         <TextBlock HorizontalAlignment="Left" Margin="647,341,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="644,366,0,0" Text="" VerticalAlignment="Top" Width="316"/>
-        <Button Content="Brisi racun" HorizontalAlignment="Left" Margin="647,458,0,0" VerticalAlignment="Top" Width="109"/>
-        <Button Content="Azuriraj racun" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="829,458,0,0" Click="Button_Click"/>
+        <Button Content="Brisi racun" HorizontalAlignment="Left" Margin="647,458,0,0" VerticalAlignment="Top" Width="109" />
+        <Button Content="Azuriraj racun" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="829,458,0,0"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="643,366,0,0" VerticalAlignment="Top" Width="312"/>
 
     </Grid>
 </Page>

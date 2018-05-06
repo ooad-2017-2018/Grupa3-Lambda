@@ -28,43 +28,14 @@ namespace Ambasada
         public UposleniciEdit()
         {
             this.InitializeComponent();
-            Ucitaj();
+            //Ucitaj();
         }
 
-        void Ucitaj() {
-            const string GetProductsQuery = "select username from uposlenici";
-            Debug.WriteLine("Ucitavam...");
-
-            var uposlenici = new ObservableCollection<Uposlenik>();
-            try {
-                Debug.WriteLine("Spajam sam na bazu");
-                using (SqlConnection conn = new SqlConnection(App.connectionString)) {
-                    Debug.WriteLine("Spojen sam na bazu");
-                    conn.Open();
-                    if (conn.State == System.Data.ConnectionState.Open) {
-                        using (SqlCommand cmd = conn.CreateCommand()) {
-                            cmd.CommandText = GetProductsQuery;
-                            using (SqlDataReader reader = cmd.ExecuteReader()) {
-                                while (reader.Read()) {
-                                    var uposlenik = new Uposlenik();
-                                    uposlenik.Username = reader.GetString(0);
-                                    uposlenici.Add(uposlenik);
-                                }
-                            }
-                        }
-                    }
-                }
-            } catch (Exception eSql) {
-                Debug.WriteLine(eSql);
-            }
-
-            ListaUposlenika.ItemsSource = uposlenici;
-
-        }
+       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(BrisanjeAzuriranjeRacuna));
         }
     }
 }

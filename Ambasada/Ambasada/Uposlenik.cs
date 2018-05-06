@@ -7,13 +7,25 @@ using System.Threading.Tasks;
 
 namespace Ambasada
 {
-    class Uposlenik
+    class Uposlenik:Osoba
     {
-        public string Username { get; set; }
+        string username;
+        string password;
+        bool administrator;
+        int id;
 
-        public string Password { get; set; }
+        public Uposlenik(string naziv, string email, DateTime datumRodjenja, string jmbg,string username, string password, bool administrator,int id): base(naziv, email,  datumRodjenja, jmbg)
+        {
+            Username = username;
+            Password = password;
+            Administrator = administrator;
+            Id = id;
+        }
 
-        public bool Administrator { get; set; }
+        public string Username { get => username; set => username = value; }
+        public string Password { get => password; set => password = value; }
+        public bool Administrator { get => administrator; set => administrator = value; }
+        public int Id { get => id; set => id = value; }
 
         public override string ToString() {
             return Username;
