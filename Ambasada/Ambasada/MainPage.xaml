@@ -14,6 +14,7 @@
         <Image x:Name="LogoElektrotehna" HorizontalAlignment="Left" Height="191" Margin="185,10,0,0" VerticalAlignment="Top" Width="247" Source="C:\Users\Jemo\Desktop\LogoElektrotehna.jpg"/>
         <TextBox x:Name="UsernameTB" HorizontalAlignment="Left" Margin="186,304,0,0" Text="" VerticalAlignment="Top" Width="247" Height="43"/>
         <PasswordBox x:Name="pwbox" HorizontalAlignment="Left" Margin="185,414,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.067,0.728" Width="247" Height="40"/>
+        <TextBlock x:Name="status" HorizontalAlignment="Left" Margin="185,562,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

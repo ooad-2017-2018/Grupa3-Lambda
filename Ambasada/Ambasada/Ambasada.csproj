@@ -112,6 +112,9 @@
       <DependentUpon>UposleniciEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Uposlenik.cs" />
+    <Compile Include="UposlenikPage.xaml.cs">
+      <DependentUpon>UposlenikPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UredjivanjeTemplejtaZaEmail.xaml.cs">
       <DependentUpon>UredjivanjeTemplejtaZaEmail.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UposleniciEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UposlenikPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

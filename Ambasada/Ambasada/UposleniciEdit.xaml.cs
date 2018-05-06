@@ -61,5 +61,10 @@ namespace Ambasada
             ListaUposlenika.ItemsSource = uposlenici;
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
