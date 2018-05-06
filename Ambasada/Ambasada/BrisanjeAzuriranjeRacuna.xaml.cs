@@ -144,7 +144,8 @@ namespace Ambasada
             if (!(kliknuti is null))
             {
 
-                string GetProductsQuery = "update uposlenici u set u.username=@user"; //nije dovršeno
+                string GetProductsQuery = "update uposlenici u set u.username=@user, u.password=@pass where u.id = @id";
+                string drugiUpit = "update osobe o set o.naziv=@naziv,o.jmbg=@jmbg, o.datum_rodjenja=@datum, o.email=@email where o.id=@idosobe";
                 Debug.WriteLine("Ucitavam...");
 
                 var uposlenici = new ObservableCollection<Uposlenik>();
@@ -160,7 +161,27 @@ namespace Ambasada
                         {
                             using (SqlCommand cmd = conn.CreateCommand())
                             {
+                                cmd.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                                cmd.Parameters.Add("@idosobe", System.Data.SqlDbType.Int);
+                                cmd.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+                                cmd.Parameters.Add("@pass", System.Data.SqlDbType.NVarChar);
+                                cmd.Parameters.Add("@naziv", System.Data.SqlDbType.NVarChar);
+                                cmd.Parameters.Add("@jmbg", System.Data.SqlDbType.NVarChar);
+                                cmd.Parameters.Add("@datum", System.Data.SqlDbType.Date);
+                                cmd.Parameters.Add("@email", System.Data.SqlDbType.NVarChar);
+                                cmd.Parameters["@id"].Value = kliknuti.Id;
+                                cmd.Parameters["@user"].Value = kliknuti.Username;
+                                cmd.Parameters["@pass"].Value = kliknuti.Password;
+                                cmd.Parameters["@naziv"].Value = kliknuti.Naziv;
+                                cmd.Parameters["@jmbg"].Value = kliknuti.Jmbg;
+                                cmd.Parameters["@idosobe"].Value = kliknuti.IdOsobe;
+                                cmd.Parameters["@datum"].Value = kliknuti.DatumRodjenja;
+                                cmd.Parameters["@email"].Value = kliknuti.Email;
                                 cmd.CommandText = GetProductsQuery;
+                                cmd.ExecuteNonQuery();
+                   
+                                cmd.CommandText = drugiUpit;
+                                cmd.ExecuteNonQuery();
                             }
                         }
                     }
