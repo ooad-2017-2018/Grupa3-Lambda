@@ -105,7 +105,7 @@ namespace Ambasada
                 string drugiUpit = "delete from osobe o where o.id =@idosobe";
                 Debug.WriteLine("Ucitavam...");
 
-                var uposlenici = new ObservableCollection<Uposlenik>();
+           
                 try
                 {
                     Debug.WriteLine("Spajam sam na bazu");
@@ -128,6 +128,9 @@ namespace Ambasada
                                 cmd.ExecuteNonQuery();
                          
                             }
+                            ListaUposlenika.Items.RemoveAt(ListaUposlenika.SelectedIndex);
+                            EmailTB.Text = ""; JMBGTB.Text = ""; UsernameTB.Text = "";
+                            PasswordTB.Password = "";   ImePrezimeTB.Text = "";
                         }
                     }
                 }
@@ -170,13 +173,13 @@ namespace Ambasada
                                 cmd.Parameters.Add("@datum", System.Data.SqlDbType.Date);
                                 cmd.Parameters.Add("@email", System.Data.SqlDbType.NVarChar);
                                 cmd.Parameters["@id"].Value = kliknuti.Id;
-                                cmd.Parameters["@user"].Value = kliknuti.Username;
-                                cmd.Parameters["@pass"].Value = kliknuti.Password;
-                                cmd.Parameters["@naziv"].Value = kliknuti.Naziv;
-                                cmd.Parameters["@jmbg"].Value = kliknuti.Jmbg;
+                                cmd.Parameters["@user"].Value = UsernameTB.Text;
+                                cmd.Parameters["@pass"].Value = PasswordTB.Password;
+                                cmd.Parameters["@naziv"].Value = ImePrezimeTB.Text;
+                                cmd.Parameters["@jmbg"].Value = JMBGTB.Text;
                                 cmd.Parameters["@idosobe"].Value = kliknuti.IdOsobe;
-                                cmd.Parameters["@datum"].Value = kliknuti.DatumRodjenja;
-                                cmd.Parameters["@email"].Value = kliknuti.Email;
+                                cmd.Parameters["@datum"].Value = DatumRodjenjaDP.Date;
+                                cmd.Parameters["@email"].Value = EmailTB.Text;
                                 cmd.CommandText = GetProductsQuery;
                                 cmd.ExecuteNonQuery();
                    
