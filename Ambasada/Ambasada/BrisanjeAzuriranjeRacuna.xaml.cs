@@ -33,7 +33,7 @@ namespace Ambasada
         }
         void Ucitaj()
         {
-            const string GetProductsQuery = "select u.username,u.password,u.id,o.naziv,o.jmbg,o.datum_rodjenja,o.email from uposlenici u, osobe o where u.osoba=o.id ";
+            const string GetProductsQuery = "select u.username,u.password,u.id,o.naziv,o.jmbg,o.datum_rodjenja,o.email,o.id from uposlenici u, osobe o where u.osoba=o.id ";
             Debug.WriteLine("Ucitavam...");
 
             var uposlenici = new ObservableCollection<Uposlenik>();
@@ -60,7 +60,8 @@ namespace Ambasada
                                     string jmbg = reader.GetString(4);
                                     DateTime datumRodjenja = reader.GetDateTime(5);
                                     string email = reader.GetString(6);
-                                    uposlenici.Add(new Uposlenik(naziv,email,datumRodjenja,jmbg,Username,Password,false,id));
+                                    int idOsobe = reader.GetInt32(7);
+                                    uposlenici.Add(new Uposlenik(naziv,email,datumRodjenja,jmbg,Username,Password,false,id,idOsobe));
                                 }
                             }
                         }
@@ -79,6 +80,97 @@ namespace Ambasada
         private void Button_Click(object sender, RoutedEventArgs e)
         {
         
+        }
+
+        private void ListaUposlenika_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
+            if(!(kliknuti is null))
+            {
+                JMBGTB.Text = kliknuti.Jmbg;
+                ImePrezimeTB.Text = kliknuti.Naziv;
+                UsernameTB.Text = kliknuti.Username;
+                PasswordTB.Password = kliknuti.Password;
+                DatumRodjenjaDP.Date = kliknuti.DatumRodjenja;
+                EmailTB.Text = kliknuti.Email;
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
+            if (!(kliknuti is null)) {
+
+                string GetProductsQuery = "delete from uposlenici u where u.id=@id";
+                string drugiUpit = "delete from osobe o where o.id =@idosobe";
+                Debug.WriteLine("Ucitavam...");
+
+                var uposlenici = new ObservableCollection<Uposlenik>();
+                try
+                {
+                    Debug.WriteLine("Spajam sam na bazu");
+                    using (SqlConnection conn = new SqlConnection(App.connectionString))
+                    {
+
+                        Debug.WriteLine("Spojen sam na bazu");
+                        conn.Open();
+                        if (conn.State == System.Data.ConnectionState.Open)
+                        {
+                            using (SqlCommand cmd = conn.CreateCommand())
+                            {
+                                cmd.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                                cmd.Parameters.Add("@idosobe", System.Data.SqlDbType.Int);
+                                cmd.Parameters["@id"].Value = kliknuti.Id;
+                                cmd.Parameters["@idosobe"].Value = kliknuti.IdOsobe;
+                                cmd.CommandText = GetProductsQuery;
+                                cmd.ExecuteNonQuery();
+                                cmd.CommandText = drugiUpit;
+                                cmd.ExecuteNonQuery();
+                         
+                            }
+                        }
+                    }
+                }
+                catch (Exception eSql)
+                {
+                    Debug.WriteLine(eSql);
+                }
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
+            if (!(kliknuti is null))
+            {
+
+                string GetProductsQuery = "update uposlenici u set u.username=@user"; //nije dovršeno
+                Debug.WriteLine("Ucitavam...");
+
+                var uposlenici = new ObservableCollection<Uposlenik>();
+                try
+                {
+                    Debug.WriteLine("Spajam sam na bazu");
+                    using (SqlConnection conn = new SqlConnection(App.connectionString))
+                    {
+
+                        Debug.WriteLine("Spojen sam na bazu");
+                        conn.Open();
+                        if (conn.State == System.Data.ConnectionState.Open)
+                        {
+                            using (SqlCommand cmd = conn.CreateCommand())
+                            {
+                                cmd.CommandText = GetProductsQuery;
+                            }
+                        }
+                    }
+                }
+                catch (Exception eSql)
+                {
+                    Debug.WriteLine(eSql);
+                }
+            }
+
         }
     }
 }

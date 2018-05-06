@@ -13,8 +13,8 @@ namespace Ambasada
         string password;
         bool administrator;
         int id;
-
-        public Uposlenik(string naziv, string email, DateTime datumRodjenja, string jmbg,string username, string password, bool administrator,int id): base(naziv, email,  datumRodjenja, jmbg)
+        
+        public Uposlenik(string naziv, string email, DateTime datumRodjenja, string jmbg,string username, string password, bool administrator,int id,int idOsobe): base(idOsobe,naziv, email,  datumRodjenja, jmbg)
         {
             Username = username;
             Password = password;
