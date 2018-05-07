@@ -92,31 +92,37 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AdminPanel.xaml.cs">
+    <Compile Include="Model\Podnosilac.cs" />
+    <Compile Include="Model\Prijava.cs" />
+    <Compile Include="Model\Tombola.cs" />
+    <Compile Include="ViewModel\AdminViewModel.cs" />
+    <Compile Include="ViewModel\BazaPodatakaHelper.cs" />
+    <Compile Include="ViewModel\UposlenikViewModel.cs" />
+    <Compile Include="VIew\AdminPanel.xaml.cs">
       <DependentUpon>AdminPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BrisanjeAzuriranjeRacuna.xaml.cs">
+    <Compile Include="VIew\BrisanjeAzuriranjeRacuna.xaml.cs">
       <DependentUpon>BrisanjeAzuriranjeRacuna.xaml</DependentUpon>
     </Compile>
-    <Compile Include="KreiranjeRacuna.xaml.cs">
+    <Compile Include="VIew\KreiranjeRacuna.xaml.cs">
       <DependentUpon>KreiranjeRacuna.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="VIew\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Osoba.cs" />
+    <Compile Include="Model\Osoba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UposleniciEdit.xaml.cs">
+    <Compile Include="VIew\UposleniciEdit.xaml.cs">
       <DependentUpon>UposleniciEdit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Uposlenik.cs" />
-    <Compile Include="UposlenikPage.xaml.cs">
+    <Compile Include="Model\Uposlenik.cs" />
+    <Compile Include="VIew\UposlenikPage.xaml.cs">
       <DependentUpon>UposlenikPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UredjivanjeTemplejtaZaEmail.xaml.cs">
+    <Compile Include="VIew\UredjivanjeTemplejtaZaEmail.xaml.cs">
       <DependentUpon>UredjivanjeTemplejtaZaEmail.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -141,31 +147,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AdminPanel.xaml">
+    <Page Include="VIew\AdminPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BrisanjeAzuriranjeRacuna.xaml">
+    <Page Include="VIew\BrisanjeAzuriranjeRacuna.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="KreiranjeRacuna.xaml">
+    <Page Include="VIew\KreiranjeRacuna.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="VIew\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UposleniciEdit.xaml">
+    <Page Include="VIew\UposleniciEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UposlenikPage.xaml">
+    <Page Include="VIew\UposlenikPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UredjivanjeTemplejtaZaEmail.xaml">
+    <Page Include="VIew\UredjivanjeTemplejtaZaEmail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +184,7 @@
       <Version>4.4.3</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
