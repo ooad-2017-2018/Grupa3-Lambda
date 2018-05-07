@@ -8,5 +8,6 @@ namespace Ambasada.ViewModel
 {
     class UposlenikViewModel
     {
+        // potrebno implementirati zajedno sa website-om naknadno, ne spada u projektni zadatak 6
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ambasada
 {
-    class Uposlenik:Osoba
+   public class Uposlenik:Osoba
     {
         string username;
         string password;

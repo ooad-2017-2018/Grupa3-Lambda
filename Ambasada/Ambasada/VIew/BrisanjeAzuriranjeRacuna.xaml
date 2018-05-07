@@ -9,7 +9,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ListBox x:Name="ListaUposlenika" HorizontalAlignment="Left" Height="532" Margin="28,207,0,0" VerticalAlignment="Top" Width="391" SelectionChanged="ListaUposlenika_SelectionChanged"/>
-        <TextBox x:Name="PretrazivanjeUposlenikaTB" HorizontalAlignment="Left" Margin="28,132,0,0" Text="Search" VerticalAlignment="Top" Width="391"/>
         <TextBlock HorizontalAlignment="Left" Margin="653,107,0,0" Text="JMBG uposlenika" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox x:Name="JMBGTB" HorizontalAlignment="Left" Margin="653,132,0,0" Text="" VerticalAlignment="Top" Width="306"/>
         <TextBlock HorizontalAlignment="Left" Margin="653,183,0,0" Text="Ime i prezime uposlenika" TextWrapping="Wrap" VerticalAlignment="Top"/>
