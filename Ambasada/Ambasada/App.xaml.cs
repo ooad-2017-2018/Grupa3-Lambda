@@ -32,7 +32,7 @@ namespace Ambasada
             this.Suspending += OnSuspending;
         }
 
-        public static String connectionString = "Server=tcp:teamlambda.database.windows.net,1433;Initial Catalog=Ambasada;Persist Security Info=False;User ID=lambda;Password=Tr!ofantastico;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        public static String connectionString = "Server=tcp:teamlambda.database.windows.net,1433;Initial Catalog=Ambasada;Persist Security Info=False;User ID=lambda;Password=teamLambd4!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
