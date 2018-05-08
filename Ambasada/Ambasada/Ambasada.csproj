@@ -183,8 +183,16 @@
     <PackageReference Include="System.Data.SqlClient">
       <Version>4.4.3</Version>
     </PackageReference>
+    <PackageReference Include="WinUX.UWP">
+      <Version>2.4.17005.1</Version>
+    </PackageReference>
+    <PackageReference Include="WinUX.UWP.Xaml">
+      <Version>2.4.17005.1</Version>
+    </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
