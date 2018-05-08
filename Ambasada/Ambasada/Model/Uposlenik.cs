@@ -22,9 +22,14 @@ namespace Ambasada
             Id = id;
         }
 
-        public string Username { get => username; set => username = value; }
-        public string Password { get => password; set => password = value; }
-        public bool Administrator { get => administrator; set => administrator = value; }
+        public string Username { get => username; set{
+                if (username.Length == 0) throw new Exception("Nevažeći username.");
+                username = value;
+            } }
+        public string Password { get => password; set {
+                if (password.Length == 0) throw new Exception("Nevažeći password.");
+                password = value; } }
+        public bool Administrator { get => administrator; set => administrator = value;}
         public int Id { get => id; set => id = value; }
 
         public override string ToString() {

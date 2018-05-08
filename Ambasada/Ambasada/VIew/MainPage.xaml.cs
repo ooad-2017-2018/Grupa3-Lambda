@@ -40,8 +40,6 @@ namespace Ambasada
                 status.Text = "Nepotpun unos";
                 return;
             }
-           
-
                 //var uposlenici = new ObservableCollection<Uposlenik>();
                 try
                 {
