@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using Ambasada.ViewModel;
+using Windows.UI.Popups;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -37,7 +38,7 @@ namespace Ambasada
       //    ImePrezimeTB.Text = ListaUposlenika.Items.Count.ToString();
             
         }
-       
+      
 
          //   ListaUposlenika.ItemsSource = uposlenici;
 
@@ -77,10 +78,18 @@ namespace Ambasada
                 ListaUposlenika.Items.RemoveAt(ListaUposlenika.SelectedIndex);
                 EmailTB.Text = ""; JMBGTB.Text = ""; UsernameTB.Text = "";
                 PasswordTB.Password = ""; ImePrezimeTB.Text = "";
+                var dialog = new MessageDialog("Uspješno obrisan uposlenik");
+                dialog.Title = "Uspješno obavljena radnja";
+                dialog.Commands.Add(new UICommand { Label = "OK", Id = 0 });
+                var res = await dialog.ShowAsync();
+                if ((int)res.Id == 0) {
+                    //kliknuto je OK!
+                    return;
+                }
             }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
             var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
             if (!(kliknuti is null))
@@ -91,7 +100,16 @@ namespace Ambasada
 
                     kliknuti = u;
                     BazaPodatakaHelper.azurirajUposlenika(kliknuti);
-                    
+                    var dialog1 = new MessageDialog("Uspješno ažuriran uposlenik");
+                    dialog1.Title = "Uspješno obavljena radnja";
+                    dialog1.Commands.Add(new UICommand { Label = "OK", Id = 0 });
+                    var res = await dialog1.ShowAsync();
+                    if ((int)res.Id == 0)
+                    {
+                        //kliknuto je OK!
+                        return;
+                    }
+
                 }
                 catch (Exception ex) {
                     status.Text = ex.ToString();
@@ -99,6 +117,10 @@ namespace Ambasada
 
             }
         }
-              
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AdminPanel));
+        }
     }
 }
