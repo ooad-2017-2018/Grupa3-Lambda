@@ -64,6 +64,19 @@ namespace Ambasada.ViewModel
             upo.DatumRodjenja = u.DatumRodjenja;
             await lista.InsertAsync(upo);
         }
+        public static async void azurirajUposlenika(Uposlenik u) {
+            var lista = App.MobileService.GetTable<uposlenici>();
+            uposlenici editovani = new uposlenici();
+            editovani.id = u.Id;
+            editovani.Administrator = false;
+            editovani.Naziv = u.Naziv;
+            editovani.Jmbg = u.Jmbg;
+            editovani.Password = u.Password;
+            editovani.Username = u.Username;
+            editovani.Email = u.Email;
+            editovani.DatumRodjenja = u.DatumRodjenja;
+            await lista.UpdateAsync(editovani);
+        }
         public static async Task obrisiUposlenikaAsync(Uposlenik u)
         {
             ObservableCollection<Uposlenik> tmp = new ObservableCollection<Uposlenik>();

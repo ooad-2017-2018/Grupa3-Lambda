@@ -23,6 +23,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="653,259,0,0" Text="Datum rođenja uposlenika" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox x:Name="EmailTB" HorizontalAlignment="Left" Margin="649,347,0,0" Text="" VerticalAlignment="Top" Width="311"/>
         <TextBlock HorizontalAlignment="Left" Margin="649,320,0,0" Text="Email uposlenika" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="status" HorizontalAlignment="Left" Margin="653,662,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="390" Width="295"/>
 
     </Grid>
 </Page>

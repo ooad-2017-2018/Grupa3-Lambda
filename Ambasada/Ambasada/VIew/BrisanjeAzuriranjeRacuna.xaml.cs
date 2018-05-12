@@ -33,7 +33,7 @@ namespace Ambasada
 
            
             this.InitializeComponent();
-           
+            status.Text = "";
       //    ImePrezimeTB.Text = ListaUposlenika.Items.Count.ToString();
             
         }
@@ -85,7 +85,18 @@ namespace Ambasada
             var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
             if (!(kliknuti is null))
             {
-             //   BazaPodatakaHelper.(kliknuti);
+                try
+                {
+                    Uposlenik u = new Uposlenik(kliknuti.Id,ImePrezimeTB.Text,EmailTB.Text,DatumRodjenjaDP.Date.Date,JMBGTB.Text,UsernameTB.Text,PasswordTB.Password,kliknuti.Administrator);
+
+                    kliknuti = u;
+                    BazaPodatakaHelper.azurirajUposlenika(kliknuti);
+                    
+                }
+                catch (Exception ex) {
+                    status.Text = ex.ToString();
+                }
+
             }
         }
               
