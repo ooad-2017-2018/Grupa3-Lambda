@@ -42,12 +42,12 @@ namespace Ambasada.ViewModel
             ObservableCollection<Uposlenik> tmp = new ObservableCollection<Uposlenik>();
             var lista = App.MobileService.GetTable<uposlenici>();
             var kor = from x in lista
-                      where !x.Administrator
+                      where x.Administrator == false
                       select x;
             var listatmp = await kor.ToListAsync();
             foreach (var x in listatmp)
             {
-                tmp.Add( new Uposlenik(listatmp[0].id, listatmp[0].Naziv, listatmp[0].Email, listatmp[0].DatumRodjenja, listatmp[0].Jmbg, listatmp[0].Username, listatmp[0].Password, listatmp[0].Administrator));
+                tmp.Add( new Uposlenik(x.id, x.Naziv, x.Email, x.DatumRodjenja, x.Jmbg, x.Username, x.Password, x.Administrator));
             }
             return tmp;
 

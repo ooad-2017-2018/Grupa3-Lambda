@@ -10,6 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button Content="Kreiraj racun" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="60" Width="179" Click="Button_Click_1"/>
         <Button Content="Obriši/ažuriraj račun" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Height="60" Width="179" Click="Button_Click"/>
+        <Button Content="Back&#xD;&#xA;" HorizontalAlignment="Left" Margin="124,204,0,0" VerticalAlignment="Top" Height="34" Width="66" Click="Button_Click_2"/>
 
     </Grid>
 </Page>

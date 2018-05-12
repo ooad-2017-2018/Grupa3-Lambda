@@ -22,6 +22,7 @@
         <TextBox x:Name="EmailTB" HorizontalAlignment="Left" Margin="36,262,0,0" Text="" VerticalAlignment="Top" Width="311"/>
         <TextBlock HorizontalAlignment="Left" Margin="36,235,0,0" Text="Email uposlenika" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="status" HorizontalAlignment="Left" Margin="41,519,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="369" Width="438"/>
+        <Button Content="Back&#xD;&#xA;" HorizontalAlignment="Left" Margin="272,483,0,0" VerticalAlignment="Top" Height="32" Width="76" Click="Button_Click"/>
 
     </Grid>
 </Page>

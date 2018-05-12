@@ -98,8 +98,11 @@ namespace Ambasada
                 {
                     Uposlenik u = new Uposlenik(kliknuti.Id,ImePrezimeTB.Text,EmailTB.Text,DatumRodjenjaDP.Date.Date,JMBGTB.Text,UsernameTB.Text,PasswordTB.Password,kliknuti.Administrator);
 
-                    kliknuti = u;
+                    viewmodel.Lista[ListaUposlenika.SelectedIndex] = u;
                     BazaPodatakaHelper.azurirajUposlenika(kliknuti);
+
+
+
                     var dialog1 = new MessageDialog("Uspješno ažuriran uposlenik");
                     dialog1.Title = "Uspješno obavljena radnja";
                     dialog1.Commands.Add(new UICommand { Label = "OK", Id = 0 });
@@ -120,7 +123,7 @@ namespace Ambasada
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AdminPanel));
+            this.Frame.Navigate(typeof(UposleniciEdit));
         }
     }
 }
