@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Ambasada.ViewModel
 {
-    class uposlenici
+    public class uposlenici
     {
+        public string id { get; set; }
+        // 
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public bool Administrator { get; set; }
+        
+        public string Naziv { get; set; }
+        public string Email { get; set; }
+        public DateTime DatumRodjenja { get; set; }
+        public string Jmbg { get; set; }
+  
     }
 }

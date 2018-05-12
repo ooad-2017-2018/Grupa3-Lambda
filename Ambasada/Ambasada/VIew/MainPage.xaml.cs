@@ -31,35 +31,12 @@ namespace Ambasada
         {
             this.InitializeComponent();
         }
-        
-        private async System.Threading.Tasks.Task LoginButton_ClickAsync(object sender, RoutedEventArgs e)
-        {
-            status.Text = "";
-            if (pwbox.Password.ToString().Length == 0||UsernameTB.Text.Length==0)
-            {
-                status.Text = "Nepotpun unos";
-                return;
-            }
-            //var uposlenici = new ObservableCollection<Uposlenik>();
-             var lista = App.MobileService.GetTable<uposlenici>();
-            var kor = from x in lista
-                      where x.Username == UsernameTB.Text && x.Password == pwbox.Password
-                      select x;
-            var listatmp = await kor.ToListAsync();
-            if (listatmp.Count ==0)
-            {
-                status.Text = "Nepostojeci korisnik";
-            }
-            else
-            {
-                var k = listatmp[0];
-                if(k.Administrator) this.Frame.Navigate(typeof(AdminPanel));
-                else this.Frame.Navigate(typeof(UposlenikPage));
-            }
-               /// ListaUposlenika.ItemsSource = uposlenici;
 
-            
-           
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            var k = await BazaPodatakaHelper.dajUposlenika(UsernameTB.Text, pwbox.Password);
+            if (k.Administrator) this.Frame.Navigate(typeof(AdminPanel));
+            else this.Frame.Navigate(typeof(UposlenikPage));
         }
     }
 }

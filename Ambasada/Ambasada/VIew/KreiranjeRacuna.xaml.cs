@@ -36,7 +36,7 @@ namespace Ambasada
         private void RregistrujUposlenikaB_Click(object sender, RoutedEventArgs e)
         {
             status.Text = "";
-            BazaPodatakaHelper.
+          //  BazaPodatakaHelper.
 
         }
     }
