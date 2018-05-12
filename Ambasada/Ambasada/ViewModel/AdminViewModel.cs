@@ -15,5 +15,6 @@ namespace Ambasada.ViewModel
 
         public Tombola Tombola { get => tombola; set => tombola = value; }
         internal ObservableCollection<Uposlenik> Lista { get => lista; set => lista = value; }
+
     }
 }

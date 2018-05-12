@@ -14,6 +14,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.WindowsAzure.MobileServices;
+
+
+
 
 namespace Ambasada
 {
@@ -26,13 +30,14 @@ namespace Ambasada
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://ambasada.azurewebsites.net");
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
 
-        public static String connectionString = "Server=tcp:teamlambda.database.windows.net,1433;Initial Catalog=Ambasada;Persist Security Info=False;User ID=lambda;Password=teamLambd4!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+       
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

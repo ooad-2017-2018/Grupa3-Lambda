@@ -15,9 +15,9 @@ namespace Ambasada
         string jmbg;
         int idOsobe;
 
-        protected Osoba(int idOsobe,string naziv, string email, DateTime datumRodjenja, string jmbg)
+        protected Osoba(string naziv, string email, DateTime datumRodjenja, string jmbg)
         {
-            IdOsobe = idOsobe;
+          //  IdOsobe = idOsobe;
             Naziv = naziv;
             Email = email;
             DatumRodjenja = datumRodjenja;
@@ -45,8 +45,8 @@ namespace Ambasada
                    || jmbg[2] != (int)datumRodjenja.Month / 10 || jmbg[3] != datumRodjenja.Month % 10 ||
                     a != b) throw new Exception("Nevažeći JMBG.");
                 jmbg = value; } }
-        public int IdOsobe { get => idOsobe; set {
+       /* public int IdOsobe { get => idOsobe; set {
                 if (idOsobe.GetType() != typeof(int) || idOsobe <= 0) throw new Exception("Nevažeći ID osobe."); 
-                idOsobe = value; } }
+                idOsobe = value; } } */
     }
 }

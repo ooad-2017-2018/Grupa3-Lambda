@@ -32,7 +32,7 @@ namespace Ambasada
             this.InitializeComponent();
         }
         
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private async System.Threading.Tasks.Task LoginButton_ClickAsync(object sender, RoutedEventArgs e)
         {
             status.Text = "";
             if (pwbox.Password.ToString().Length == 0||UsernameTB.Text.Length==0)
@@ -40,17 +40,22 @@ namespace Ambasada
                 status.Text = "Nepotpun unos";
                 return;
             }
-                //var uposlenici = new ObservableCollection<Uposlenik>();
-                try
-                {
-                    if(BazaPodatakaHelper.loginKorisnika(UsernameTB.Text,pwbox.Password)) this.Frame.Navigate(typeof(AdminPanel));
+            //var uposlenici = new ObservableCollection<Uposlenik>();
+             var lista = App.MobileService.GetTable<uposlenici>();
+            var kor = from x in lista
+                      where x.Username == UsernameTB.Text && x.Password == pwbox.Password
+                      select x;
+            var listatmp = await kor.ToListAsync();
+            if (listatmp.Count ==0)
+            {
+                status.Text = "Nepostojeci korisnik";
+            }
+            else
+            {
+                var k = listatmp[0];
+                if(k.Administrator) this.Frame.Navigate(typeof(AdminPanel));
                 else this.Frame.Navigate(typeof(UposlenikPage));
-                }
-                catch (Exception eSql)
-                {
-                status.Text = eSql.Message;
-                }
-
+            }
                /// ListaUposlenika.ItemsSource = uposlenici;
 
             

@@ -12,14 +12,14 @@ namespace Ambasada
         string username;
         string password;
         bool administrator;
-        int id;
+        string id = "";
         
-        public Uposlenik(string naziv, string email, DateTime datumRodjenja, string jmbg,string username, string password, bool administrator,int id,int idOsobe): base(idOsobe,naziv, email,  datumRodjenja, jmbg)
+        public Uposlenik(string naziv, string email, DateTime datumRodjenja, string jmbg,string username, string password, bool administrator,int idOsobe): base(naziv, email,  datumRodjenja, jmbg)
         {
             Username = username;
             Password = password;
             Administrator = administrator;
-            Id = id;
+           // Id = id;
         }
 
         public string Username { get => username; set{
@@ -30,7 +30,7 @@ namespace Ambasada
                 if (password.Length == 0) throw new Exception("Nevažeći password.");
                 password = value; } }
         public bool Administrator { get => administrator; set => administrator = value;}
-        public int Id { get => id; set => id = value; }
+        public string Id { get => id; set => id = value; }
 
         public override string ToString() {
             return Username;

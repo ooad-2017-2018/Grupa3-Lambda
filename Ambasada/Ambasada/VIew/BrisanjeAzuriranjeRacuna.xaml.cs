@@ -30,7 +30,7 @@ namespace Ambasada
         public BrisanjeAzuriranjeRacuna()
         {
             this.InitializeComponent();
-            ListaUposlenika.ItemsSource = BazaPodatakaHelper.Ucitaj();  //
+         //   ListaUposlenika.ItemsSource = BazaPodatakaHelper.Ucitaj();  //
         }
        
 
@@ -62,7 +62,7 @@ namespace Ambasada
             var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
             if (!(kliknuti is null))
             {
-                BazaPodatakaHelper.ObrisiUposlenika(kliknuti);
+             //    BazaPodatakaHelper.ObrisiUposlenika(kliknuti);
                 ListaUposlenika.Items.RemoveAt(ListaUposlenika.SelectedIndex);
                 EmailTB.Text = ""; JMBGTB.Text = ""; UsernameTB.Text = "";
                 PasswordTB.Password = ""; ImePrezimeTB.Text = "";
@@ -74,7 +74,7 @@ namespace Ambasada
             var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
             if (!(kliknuti is null))
             {
-                BazaPodatakaHelper.AzurirajUposlenika(kliknuti);
+               // BazaPodatakaHelper.AzurirajUposlenika(kliknuti);
             }
         }
               
