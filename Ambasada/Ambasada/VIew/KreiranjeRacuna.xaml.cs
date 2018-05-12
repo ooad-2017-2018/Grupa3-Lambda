@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,16 +34,21 @@ namespace Ambasada
 
         }
 
-        private void RregistrujUposlenikaB_Click(object sender, RoutedEventArgs e)
+        private async void RregistrujUposlenikaB_Click(object sender, RoutedEventArgs e)
         {
             status.Text = "";
             try
             {
                 BazaPodatakaHelper.dodajUposlenika(new Uposlenik("-1", ImePrezimeTB.Text, EmailTB.Text, DatumRodjenjaDP.Date.Date, JMBGTB.Text, UsernameTB.Text, PasswordTB.Password, false));
+                var dialog = new MessageDialog("Uspjesno ste dodali uposlenika!");
+                await dialog.ShowAsync();
+                this.Frame.Navigate(typeof(UposleniciEdit));
             }
             catch (Exception ex) {
                 status.Text = ex.ToString();
             }
         }
+
+     
     }
 }

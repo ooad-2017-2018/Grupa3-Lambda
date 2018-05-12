@@ -27,11 +27,15 @@ namespace Ambasada
     /// </summary>
     public sealed partial class BrisanjeAzuriranjeRacuna : Page
     {
-        private AdminViewModel viewmodel = new AdminViewModel();
+        private AdminViewModel viewmodel;
         public BrisanjeAzuriranjeRacuna()
         {
+
+           
             this.InitializeComponent();
-            ListaUposlenika.ItemsSource = viewmodel.Lista;
+           
+      //    ImePrezimeTB.Text = ListaUposlenika.Items.Count.ToString();
+            
         }
        
 
@@ -43,7 +47,13 @@ namespace Ambasada
         {
         
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            viewmodel = (AdminViewModel)e.Parameter;
+            ListaUposlenika.ItemsSource = viewmodel.Lista;
 
+        }
         private void ListaUposlenika_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
@@ -58,12 +68,12 @@ namespace Ambasada
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
             if (!(kliknuti is null))
             {
-             //    BazaPodatakaHelper.ObrisiUposlenika(kliknuti);
+                await BazaPodatakaHelper.obrisiUposlenikaAsync(kliknuti);
                 ListaUposlenika.Items.RemoveAt(ListaUposlenika.SelectedIndex);
                 EmailTB.Text = ""; JMBGTB.Text = ""; UsernameTB.Text = "";
                 PasswordTB.Password = ""; ImePrezimeTB.Text = "";
@@ -75,7 +85,7 @@ namespace Ambasada
             var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
             if (!(kliknuti is null))
             {
-               // BazaPodatakaHelper.AzurirajUposlenika(kliknuti);
+             //   BazaPodatakaHelper.(kliknuti);
             }
         }
               

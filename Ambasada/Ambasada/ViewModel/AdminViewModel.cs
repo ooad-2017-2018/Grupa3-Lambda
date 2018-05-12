@@ -20,11 +20,9 @@ namespace Ambasada.ViewModel
 
         public async void inicijaliziraj() {
             Lista = await BazaPodatakaHelper.dajUposlenike();
-
         }
         
         public Tombola Tombola { get => tombola; set => tombola = value; }
-        internal ObservableCollection<Uposlenik> Lista { get => lista; set => lista = value; }
-
+        public ObservableCollection<Uposlenik> Lista { get => lista; set => lista = value; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ambasada.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
@@ -25,6 +26,7 @@ namespace Ambasada
     /// </summary>
     public sealed partial class UposleniciEdit : Page
     {
+        AdminViewModel adminview = new AdminViewModel();
         public UposleniciEdit()
         {
             this.InitializeComponent();
@@ -35,7 +37,7 @@ namespace Ambasada
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(BrisanjeAzuriranjeRacuna));
+            this.Frame.Navigate(typeof(BrisanjeAzuriranjeRacuna),adminview);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
