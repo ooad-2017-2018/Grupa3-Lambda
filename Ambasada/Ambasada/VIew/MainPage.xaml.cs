@@ -34,9 +34,16 @@ namespace Ambasada
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            var k = await BazaPodatakaHelper.dajUposlenika(UsernameTB.Text, pwbox.Password);
-            if (k.Administrator) this.Frame.Navigate(typeof(AdminPanel));
-            else this.Frame.Navigate(typeof(UposlenikPage));
+            status.Text = "";
+            try
+            {
+                var k = await BazaPodatakaHelper.dajUposlenika(UsernameTB.Text, pwbox.Password);
+                if (k.Administrator) this.Frame.Navigate(typeof(AdminPanel));
+                else this.Frame.Navigate(typeof(UposlenikPage));
+            }
+            catch (Exception ex){
+                status.Text = ex.ToString();
+            }
         }
     }
 }

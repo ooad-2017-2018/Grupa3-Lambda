@@ -15,7 +15,7 @@ namespace Ambasada.ViewModel
         {
             var lista = App.MobileService.GetTable<uposlenici>();
             var kor = from x in lista
-                      where x.Username == username && x.Password == password
+                      where x.Username == username && x.Password == password 
                       select x;
             var listatmp = await kor.ToListAsync();
             if (listatmp.Count == 0) throw new Exception("Nepostojeci korisnik");
@@ -28,7 +28,7 @@ namespace Ambasada.ViewModel
         {
             var lista = App.MobileService.GetTable<uposlenici>();
             var kor = from x in lista
-                      where x.id == id
+                      where x.id == id 
                       select x;
             var listatmp = await kor.ToListAsync();
             if (listatmp.Count == 0) throw new Exception("Nepostojeci korisnik");
@@ -42,6 +42,7 @@ namespace Ambasada.ViewModel
             ObservableCollection<Uposlenik> tmp = new ObservableCollection<Uposlenik>();
             var lista = App.MobileService.GetTable<uposlenici>();
             var kor = from x in lista
+                      where !x.Administrator
                       select x;
             var listatmp = await kor.ToListAsync();
             foreach (var x in listatmp)
@@ -50,6 +51,18 @@ namespace Ambasada.ViewModel
             }
             return tmp;
 
+        }
+        public static async void dodajUposlenika(Uposlenik u) {
+            var lista = App.MobileService.GetTable<uposlenici>();
+            uposlenici upo = new uposlenici();
+            upo.Administrator = false;
+            upo.Naziv = u.Naziv;
+            upo.Jmbg = u.Jmbg;
+            upo.Password = u.Password;
+            upo.Username = u.Username;
+            upo.Email = u.Email;
+            upo.DatumRodjenja = u.DatumRodjenja;
+            await lista.InsertAsync(upo);
         }
         public static async Task obrisiUposlenikaAsync(Uposlenik u)
         {

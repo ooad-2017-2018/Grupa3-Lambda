@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="Kreiraj racun" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="60" Width="179"/>
+        <Button Content="Kreiraj racun" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="60" Width="179" Click="Button_Click_1"/>
         <Button Content="Obriši/ažuriraj račun" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Height="60" Width="179" Click="Button_Click"/>
 
     </Grid>

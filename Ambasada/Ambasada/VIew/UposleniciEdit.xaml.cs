@@ -37,5 +37,10 @@ namespace Ambasada
         {
             this.Frame.Navigate(typeof(BrisanjeAzuriranjeRacuna));
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(KreiranjeRacuna));
+        }
     }
 }

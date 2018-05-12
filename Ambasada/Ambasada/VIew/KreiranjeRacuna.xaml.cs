@@ -36,8 +36,13 @@ namespace Ambasada
         private void RregistrujUposlenikaB_Click(object sender, RoutedEventArgs e)
         {
             status.Text = "";
-          //  BazaPodatakaHelper.
-
+            try
+            {
+                BazaPodatakaHelper.dodajUposlenika(new Uposlenik("-1", ImePrezimeTB.Text, EmailTB.Text, DatumRodjenjaDP.Date.Date, JMBGTB.Text, UsernameTB.Text, PasswordTB.Password, false));
+            }
+            catch (Exception ex) {
+                status.Text = ex.ToString();
+            }
         }
     }
 }

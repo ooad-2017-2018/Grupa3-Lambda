@@ -27,10 +27,11 @@ namespace Ambasada
     /// </summary>
     public sealed partial class BrisanjeAzuriranjeRacuna : Page
     {
+        private AdminViewModel viewmodel = new AdminViewModel();
         public BrisanjeAzuriranjeRacuna()
         {
             this.InitializeComponent();
-         //   ListaUposlenika.ItemsSource = BazaPodatakaHelper.Ucitaj();  //
+            ListaUposlenika.ItemsSource = viewmodel.Lista;
         }
        
 

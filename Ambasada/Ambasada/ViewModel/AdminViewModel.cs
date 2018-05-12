@@ -13,6 +13,16 @@ namespace Ambasada.ViewModel
         private Tombola tombola;
         private ObservableCollection<Uposlenik> lista;
 
+        public AdminViewModel()
+        {
+            inicijaliziraj();
+        }
+
+        public async void inicijaliziraj() {
+            Lista = await BazaPodatakaHelper.dajUposlenike();
+
+        }
+        
         public Tombola Tombola { get => tombola; set => tombola = value; }
         internal ObservableCollection<Uposlenik> Lista { get => lista; set => lista = value; }
 

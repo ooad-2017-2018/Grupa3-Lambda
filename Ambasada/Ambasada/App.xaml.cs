@@ -15,7 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.WindowsAzure.MobileServices;
-
+
+
 
 
 
@@ -90,6 +91,17 @@ namespace Ambasada
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
+        public static bool ValidacijaJMBGa(string _JMBG, DateTime _datumRodjenja)
+        {
+            string _dan = _datumRodjenja.Day.ToString();
+            string _mjesec = _datumRodjenja.Month.ToString();
+            string _godina = _datumRodjenja.Year.ToString();
+            if (_dan.Length == 1) _dan = "0" + _dan;
+            if (_mjesec.Length == 1) _mjesec = "0" + _mjesec;
+            if (_JMBG.Length != 13 || _JMBG.Substring(0, 2) != _dan || _JMBG.Substring(2, 2) != _mjesec || _JMBG.Substring(4, 3) != _godina.Substring(1)) return false;
+
+            return true;
+        }
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved
         /// without knowing whether the application will be terminated or resumed with the contents
