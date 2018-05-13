@@ -28,7 +28,7 @@ namespace Ambasada
     /// </summary>
     public sealed partial class BrisanjeAzuriranjeRacuna : Page
     {
-        private AdminViewModel viewmodel;
+        private AdminViewModel viewmodel = new AdminViewModel();
         public BrisanjeAzuriranjeRacuna()
         {
 
@@ -52,7 +52,7 @@ namespace Ambasada
         {
             base.OnNavigatedTo(e);
             viewmodel = (AdminViewModel)e.Parameter;
-            ListaUposlenika.ItemsSource = viewmodel.Lista;
+            ListaUposlenika.ItemsSource = viewmodel.Lista; // krah zbog nullptr
 
         }
         private void ListaUposlenika_SelectionChanged(object sender, SelectionChangedEventArgs e)

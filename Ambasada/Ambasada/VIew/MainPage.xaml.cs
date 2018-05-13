@@ -27,6 +27,7 @@ namespace Ambasada
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private AdminViewModel viewmodel = new AdminViewModel();
         public MainPage()
         {
             this.InitializeComponent();
@@ -38,7 +39,7 @@ namespace Ambasada
             try
             {
                 var k = await BazaPodatakaHelper.dajUposlenika(UsernameTB.Text, pwbox.Password);
-                if (k.Administrator) this.Frame.Navigate(typeof(AdminPanel));
+                if (k.Administrator) this.Frame.Navigate(typeof(AdminPanel),viewmodel);
                 else this.Frame.Navigate(typeof(UposlenikPage));
             }
             catch (Exception ex){

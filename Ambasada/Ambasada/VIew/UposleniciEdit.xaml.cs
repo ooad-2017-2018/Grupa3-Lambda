@@ -26,18 +26,22 @@ namespace Ambasada
     /// </summary>
     public sealed partial class UposleniciEdit : Page
     {
-        AdminViewModel adminview = new AdminViewModel();
+        AdminViewModel viewmodel = new AdminViewModel();
         public UposleniciEdit()
         {
             this.InitializeComponent();
             //Ucitaj();
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            viewmodel = (AdminViewModel)e.Parameter;
+        }
 
-       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(BrisanjeAzuriranjeRacuna),adminview);
+            this.Frame.Navigate(typeof(BrisanjeAzuriranjeRacuna),viewmodel);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

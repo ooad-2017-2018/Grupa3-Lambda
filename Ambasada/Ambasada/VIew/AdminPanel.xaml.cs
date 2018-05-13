@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ambasada.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,14 +23,20 @@ namespace Ambasada
     /// </summary>
     public sealed partial class AdminPanel : Page
     {
+        private AdminViewModel viewmodel= new AdminViewModel();
         public AdminPanel()
         {
             this.InitializeComponent();
         }
-
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            viewmodel = (AdminViewModel)e.Parameter;
+            
+        }
         private void KreiranjeBrisanjeUposlenika_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UposleniciEdit));
+            this.Frame.Navigate(typeof(UposleniciEdit),viewmodel);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

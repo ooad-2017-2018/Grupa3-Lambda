@@ -24,9 +24,16 @@ namespace Ambasada
     /// </summary>
     public sealed partial class KreiranjeRacuna : Page
     {
+        private AdminViewModel viewmodel = new AdminViewModel();
         public KreiranjeRacuna()
         {
             this.InitializeComponent();
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            viewmodel = (AdminViewModel)e.Parameter;
+            
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
