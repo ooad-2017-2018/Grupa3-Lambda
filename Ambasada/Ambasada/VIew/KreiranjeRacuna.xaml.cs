@@ -49,7 +49,7 @@ namespace Ambasada
                 BazaPodatakaHelper.dodajUposlenika(new Uposlenik("-1", ImePrezimeTB.Text, EmailTB.Text, DatumRodjenjaDP.Date.Date, JMBGTB.Text, UsernameTB.Text, PasswordTB.Password, false));
                 var dialog = new MessageDialog("Uspjesno ste dodali uposlenika!");
                 await dialog.ShowAsync();
-                this.Frame.Navigate(typeof(UposleniciEdit));
+                this.Frame.Navigate(typeof(UposleniciEdit),viewmodel);
             }
             catch (Exception ex) {
                 status.Text = ex.ToString();
@@ -58,7 +58,7 @@ namespace Ambasada
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UposleniciEdit));
+            this.Frame.Navigate(typeof(UposleniciEdit),viewmodel);
         }
     }
 }

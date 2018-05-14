@@ -46,12 +46,12 @@ namespace Ambasada
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(KreiranjeRacuna));
+            this.Frame.Navigate(typeof(KreiranjeRacuna),viewmodel);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AdminPanel));
+            this.Frame.Navigate(typeof(AdminPanel),viewmodel);
         }
     }
 }

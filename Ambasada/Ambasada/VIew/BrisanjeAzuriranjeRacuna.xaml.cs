@@ -123,7 +123,7 @@ namespace Ambasada
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UposleniciEdit));
+            this.Frame.Navigate(typeof(UposleniciEdit),viewmodel);
         }
     }
 }
