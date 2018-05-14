@@ -41,7 +41,7 @@ namespace Ambasada
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(BrisanjeAzuriranjeRacuna),viewmodel);
+            this.Frame.Navigate(typeof(BrisanjeAzuriranjeRacuna),viewmodel);//postaje nullptr nakon back-a
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

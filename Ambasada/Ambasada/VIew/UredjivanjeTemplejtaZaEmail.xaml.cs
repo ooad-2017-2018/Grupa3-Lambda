@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ambasada.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,16 @@ namespace Ambasada
     /// </summary>
     public sealed partial class UredjivanjeTemplejtaZaEmail : Page
     {
+        AdminViewModel viewmodel = new AdminViewModel(); 
         public UredjivanjeTemplejtaZaEmail()
         {
             this.InitializeComponent();
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            viewmodel = (AdminViewModel)e.Parameter;
+
         }
     }
 }
