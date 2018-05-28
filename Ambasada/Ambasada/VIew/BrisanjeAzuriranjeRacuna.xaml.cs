@@ -75,7 +75,8 @@ namespace Ambasada
             if (!(kliknuti is null))
             {
                 await BazaPodatakaHelper.obrisiUposlenikaAsync(kliknuti);
-                ListaUposlenika.Items.RemoveAt(ListaUposlenika.SelectedIndex);
+                //ListaUposlenika.Items.RemoveAt(ListaUposlenika.SelectedIndex);
+                viewmodel.Lista.Remove(kliknuti);
                 EmailTB.Text = ""; JMBGTB.Text = ""; UsernameTB.Text = "";
                 PasswordTB.Password = ""; ImePrezimeTB.Text = "";
                 var dialog = new MessageDialog("Uspješno obrisan uposlenik");
