@@ -1,3 +1,14 @@
+2. Prototype patern
+Uloga Prototype paterna je da kreira nove objekte klonirajući jednu od postojećih prototip
+instanci (postojeći objekat). Ako je trošak kreiranja novog objekta velik i kreiranje objekta je
+resursno zahtjevno tada se vrši kloniranje već postojećeg objekata. Prototype dizajn patern
+dozvoljava da se kreiraju prilagođeni objekti bez poznavanja njihove klase ili detalja kako je
+objekat kreiran.
+
+Implementacija ovog tipa paterna nije bila realizovana na projektu ali bi se moglo uraditi da čitav sistem tombole bude realizovan tako
+da ako se isplati klonirati tombolu za dalji krug izvlačenja, to se uradi, ako ne, dosadašnja tombola se uništava. U protivnom se klonira i iskorištava za dalji rad
+
+
 4. Abstract Factory patern
 Abstract Factory patern omogućava da se kreiraju familije povezanih objekata/produkata. Na
 osnovu apstraktne familije produkata kreiraju se konkretne fabrike (factories) produkata
