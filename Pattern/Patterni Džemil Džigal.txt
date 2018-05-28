@@ -1,0 +1,38 @@
+4. Abstract Factory patern
+Abstract Factory patern omogućava da se kreiraju familije povezanih objekata/produkata. Na
+osnovu apstraktne familije produkata kreiraju se konkretne fabrike (factories) produkata
+različitih tipova i različitih kombinacija. Patern odvaja definiciju (klase) produkata od
+klijenta. Zbog toga se familije produkata mogu jednostavno izmjenjivati ili ažurirati bez
+narušavanja strukture klijenta. Šema dizajn paterna data je na slici 4.
+
+Primjer korištenja AFP-a nema na projektu jer se ne zahtijeva veliki nivo apstrakcije i fabriciranje
+povezanih ali različitih produkata.
+AFP bi se mogao koristiti ako bismo imali klijenta koji u svojem postojanju u sistemu ima veliki nivo
+interakcije sa sistemom o kojim ne bi trebao da ima uvida u rad istog.
+
+
+
+5.Builder patern
+Uloga Builder paterna je odvajanje specifikacije kompleksnih objekata od njihove stvarne
+konstrukcije. Isti konstrukcijski proces može kreirati različite reprezentacije. 
+
+
+Primjena ovog paterna je očigledna unutar viewmodela koji se naziva AdminViewModel.
+Potpuno je odvojena specifikacija objekata Uposlenik od njihove stvarne konstrukcije.
+Postoji samo manipulacija nad uposlenicima.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
