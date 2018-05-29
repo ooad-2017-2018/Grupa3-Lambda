@@ -1,0 +1,36 @@
+1. Facade pattern
+
+Facade patern se koristi kada sistem ima više identificiranih podsistema (subsystems) pri čemu su
+apstrakcije i implementacije podsistema usko povezane. Osnovna namjena Facade paterna je da osigura
+više pogleda visokog nivoa na podsisteme (implementacija podsistema skrivena od korisnika).
+Operacije koje su potrebne određenoj korisničkoj perspektivi mogu biti sastavljene od različitih
+dijelova podsistema. Može se više fasada postaviti oko postojećeg skupa podsistema i na taj način
+formirati više prilagođenih pogleda na sistem. 
+
+Strukturu Facade paterna čine sljedeće klase: Facade – definira i implementira jedinstven interfejs za
+skup operacija nekog podsistema, SubsystemClassN – definira i implementira N-ti interfejs u skupu
+interfejsa nekog podsistema (N = 1, 2, 3, ...)
+
+2. Decorator pattern
+
+Osnovna namjena Decorator paterna je da omogući dinamičko dodavanje novih elemenata i ponašanja
+(funkcionalnosti) postojećim objektima. Objekat pri tome nezna da je urađena dekoracija što je veoma
+korisno za iskoristljivost i ponovnu upotrebu komponenti softverskog sistema. Na ilustraciji 3 je
+prikazana grafička upotreba Decorator paterna. Može se naprimjer koristi i za implementaciju
+različitih kompresija videa, simultano prevođenje. 
+
+Decorator patern čine sljedeće klase (slika 3): Component – Originalna klasa (klase) koja sadrži
+interfejs koji se može mijenjati ili mu se mogu dinamički dodati operacije, IComponent – interfejs koji
+identificira klase objekata koji trebaju biti dekorisani (Component je jedna od njih), Decorator –
+klasa koja odgovara IComponent interfejsu i implementira dinamički prošireni interfejs. 
+
+3. Bridge pattern
+
+Osnovna namjena Bridge paterna je da omogući odvajanje apstrakcije i implementacije neke klase tako
+da ta klasa može posjedovati više različitih apstrakcija i više različitih implementacija za pojedine
+apstrakcije. Bridge patern pogodan je kada se implementira nova verzija softvera a postojeća mora
+ostati u funkciji. Moguće je implementirati i sistem za razmjenu poruka primjenom Bridge paterna.
+
+Bridge patern sastavljen je od klasa (slika 4): Abstraction –interfejs apstrakcije (to je interfejs koji
+klijent vidi na slici Operation1), Bridge – interfejs koji definira apstrakciju i koji može imati različite
+implementacije (klase ImplementationA, ImplementationB,....). 
