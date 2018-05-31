@@ -201,10 +201,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805311633147_prvs.cs" />
+    <Compile Include="Migrations\201805311633147_prvs.Designer.cs">
+      <DependentUpon>201805311633147_prvs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AmbasadaContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Osoba.cs" />
     <Compile Include="Models\Podnosilac.cs" />
     <Compile Include="Models\Prijava.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -285,6 +290,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805311633147_prvs.resx">
+      <DependentUpon>201805311633147_prvs.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

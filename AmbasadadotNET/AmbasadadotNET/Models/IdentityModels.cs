@@ -17,11 +17,11 @@ namespace AmbasadadotNET.Models
             return userIdentity;
         }
     }
-
+    
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("Name=AzureBaza", throwIfV1Schema: false)
         {
         }
 
@@ -30,4 +30,5 @@ namespace AmbasadadotNET.Models
             return new ApplicationDbContext();
         }
     }
+    
 }
