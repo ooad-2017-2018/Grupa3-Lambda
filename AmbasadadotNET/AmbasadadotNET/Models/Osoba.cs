@@ -36,7 +36,7 @@ namespace AmbasadadotNET.Models
                     throw new Exception("Nevažeća godina rođenja.");
                 datumRodjenja = value; } }
         public string Jmbg { get => jmbg; set{
-                if (!App.ValidacijaJMBGa(value, datumRodjenja)) throw new Exception("Nevažeći JMBG");
+                //if (!App.ValidacijaJMBGa(value, datumRodjenja)) throw new Exception("Nevažeći JMBG");
                 jmbg = value; } }
        /* public int IdOsobe { get => idOsobe; set {
                 if (idOsobe.GetType() != typeof(int) || idOsobe <= 0) throw new Exception("Nevažeći ID osobe."); 

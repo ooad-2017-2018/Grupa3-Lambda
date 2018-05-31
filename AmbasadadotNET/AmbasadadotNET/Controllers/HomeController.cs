@@ -20,9 +20,9 @@ namespace AmbasadadotNET.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Prijava()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Prijavi se za vizu.";
 
             return View();
         }
