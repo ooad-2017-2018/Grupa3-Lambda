@@ -13,11 +13,12 @@ namespace AmbasadadotNET.Models
            // AutomaticMigrationsEnabled = true;
         }
         public DbSet<Prijava> prijave { get; set; }
-        public DbSet<Podnosilac> podnosioci { get; set; }
-
+        public DbSet<Podnosilac> podnosioci { get; set; } 
+        /*
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+        */
     }
 }
