@@ -41,22 +41,35 @@ namespace Ambasada.VIew
             ListaOdobrenihVizaLB.ItemsSource = lista;
         }
        
-        private void PrintButton_Click(object sender, RoutedEventArgs e)
+        private async void PrintButton_ClickAsync(object sender, RoutedEventArgs e)
         {
+            /*
             var clicked = (Prijava)ListaOdobrenihVizaLB.SelectedItem;
             if (clicked != null)
             {
+                string aa = clicked.Podnosilac.naziv;
+                string b = clicked.vrijemePrijave.ToString();
                 PdfDocument pd = new PdfDocument();
+               ;
                 PdfPage pdpage = pd.Pages.Add();
-                var x = pdpage.CreateTemplate();
+                var x = new PdfTemplate(100, 500);
+               
                 x.Graphics.DrawString("POTVRDA O IZDATOJ VIZI\n\n Poštovani "+clicked.Podnosilac.naziv+" Vaš zahtjev za boravak u državi " +
                     "Elektrotehni podnijet na datum "+clicked.vrijemePrijave.ToString("dd/mm/yyyy/")+" je odobren. Želimo vam ugodan" +
                     "boravak u našoj državi", new PdfStandardFont(PdfFontFamily.Helvetica, 14), new PdfSolidBrush(Color.Black),5,5) ;
                 pdpage.Graphics.DrawPdfTemplate(x,PointF.Empty);
+                var folderpicker = new Windows.Storage.Pickers.FolderPicker();
+                Windows.Storage.StorageFolder folder = await folderpicker.PickSingleFolderAsync();
+                string path = folder.Path;
                 string a = clicked.Podnosilac.naziv + " viza.pdf";
-                pd.Save(File.Create(a));
+             
+                string fullPath = Path.Combine(path,a);
+                pd.Save(File.Create(fullPath));
+                pd.Close();
+              
   
             }
+            */
       
         }
 
