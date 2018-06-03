@@ -48,6 +48,7 @@ namespace Ambasada.VIew
             //odobri selektovanu prijavu za tombolu//
             if (!(kliknuti is null)) {
                 kliknuti.stanjePrijave = true;
+                BazaPodatakaHelper.updatePrijavu(kliknuti);
             }
         }
 
@@ -56,6 +57,7 @@ namespace Ambasada.VIew
             //odbij selektovanu prijavu za tombolu
             if (!(kliknuti is null)) {
                 kliknuti.stanjePrijave = false;
+                BazaPodatakaHelper.updatePrijavu(kliknuti);
             }
         }
 
