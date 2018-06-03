@@ -46,8 +46,9 @@ namespace Ambasada
                 if (k.Administrator) this.Frame.Navigate(typeof(AdminPanel),viewmodel);
                 else this.Frame.Navigate(typeof(UposlenikPage),uviewmodel);
             }
-            catch (Exception ex){
-                status.Text = ex.ToString();
+            catch (Exception ex){// me valja username ili password
+                status.Text = "Pogrešno ste unijeli username/password ili je došlo do greške na serveru.";
+                //status.Text = ex.ToString();
             }
  
            

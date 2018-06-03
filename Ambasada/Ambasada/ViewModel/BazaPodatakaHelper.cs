@@ -55,6 +55,49 @@ namespace Ambasada.ViewModel
                 return prijave;
                 }
         }
+        public static async Task<ObservableCollection<Prijava>> dajPotvrdjenePrijave() {
+            ObservableCollection<Prijava> prijavice = new ObservableCollection<Prijava>();
+            using (var client = new HttpClient()) {
+                client.BaseAddress = new Uri(apiUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage res = await client.GetAsync("api/Prijava/");
+
+                if (res.IsSuccessStatusCode) {
+                    var odgovor = res.Content.ReadAsStringAsync().Result;
+                    prijavice = JsonConvert.DeserializeObject<ObservableCollection<Prijava>>(odgovor);
+                }
+                ObservableCollection<Prijava> vrati = new ObservableCollection<Prijava>();
+                foreach (var x in prijavice) {
+                    if (x.stanjePrijave)
+                        vrati.Add(x);
+                }
+                return vrati;
+            }
+        }
+        public static async Task<ObservableCollection<Prijava>> dajOdbijenePrijave() {
+            ObservableCollection<Prijava> prijavice = new ObservableCollection<Prijava>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(apiUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage res = await client.GetAsync("api/Prijava/");
+
+                if (res.IsSuccessStatusCode)
+                {
+                    var odgovor = res.Content.ReadAsStringAsync().Result;
+                    prijavice = JsonConvert.DeserializeObject<ObservableCollection<Prijava>>(odgovor);
+                }
+                ObservableCollection<Prijava> vrati = new ObservableCollection<Prijava>();
+                foreach (var x in prijavice)
+                {
+                    if (!x.stanjePrijave)
+                        vrati.Add(x);
+                }
+                return vrati;
+            }
+        }
         public static async void updatePrijavu(Prijava p)
         {
               using(var client =new HttpClient())
