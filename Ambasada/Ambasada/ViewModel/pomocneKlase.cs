@@ -20,4 +20,7 @@ namespace Ambasada.ViewModel
         public string Jmbg { get; set; }
   
     }
+   
 }
+
+

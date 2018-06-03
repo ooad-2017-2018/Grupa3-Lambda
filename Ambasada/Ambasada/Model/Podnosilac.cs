@@ -6,12 +6,33 @@ using System.Threading.Tasks;
 
 namespace Ambasada.Model
 {
-    public class Podnosilac : Osoba
+    public class Podnosilac 
     {
 
-        // potrebno implementirati zajedno sa website-om naknadno, ne spada u projektni zadatak 6
-        protected Podnosilac(int idOsobe, string naziv, string email, DateTime datumRodjenja, string jmbg) : base( naziv, email, datumRodjenja, jmbg)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Podnosilac()
         {
+           
         }
+
+        public int id { get; set; }
+
+
+        public string naziv { get; set; }
+
+        public string email { get; set; }
+
+        public DateTime datumRodjenja { get; set; }
+
+
+        public string jmbg { get; set; }
+
+        public string dodatneInformacije { get; set; }
+
+
+        public string mjestoPrebivalista { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public Prijava prijavas { get; set; }
     }
 }

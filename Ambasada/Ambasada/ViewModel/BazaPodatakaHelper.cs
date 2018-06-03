@@ -1,10 +1,13 @@
 ﻿using Ambasada.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,10 +41,36 @@ namespace Ambasada.ViewModel
                 return new Uposlenik(listatmp[0].id, listatmp[0].Naziv, listatmp[0].Email, listatmp[0].DatumRodjenja, listatmp[0].Jmbg, listatmp[0].Username, listatmp[0].Password, listatmp[0].Administrator);
             }
         }
-        public static  Task<ObservableCollection<Prijava>> dajPrijave() { //dodati async
+        public static async Task<ObservableCollection<Prijava>> dajPrijave() { //dodati async
             ObservableCollection<Prijava> prijave = new ObservableCollection<Prijava>();
+            string apiUrl = "https://ambasadaapinet2018.azurewebsites.net/";   
+                using (var client = new HttpClient())
+                {
+
+                    //Postavljanje adrese URL od web api servisa
+                    client.BaseAddress = new Uri(apiUrl);
+                    client.DefaultRequestHeaders.Clear();
+
+                    //definisanje formata koji želimo prihvatiti
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    //Asinhrono slanje zahtjeva za podacima o studentima
+
+                    HttpResponseMessage Res = await client.GetAsync("api/Prijava/");
+                    //Provjera da li je rezultat uspješan
+                    if (Res.IsSuccessStatusCode)
+                    {
+                        //spremanje podataka dobijenih iz responsa
+                        var response = Res.Content.ReadAsStringAsync().Result;
+
+                    //Deserijalizacija responsa dobijenog iz apija i pretvaranje u listu
+
+                    prijave = JsonConvert.DeserializeObject<ObservableCollection<Prijava>>(response);
+                    }
+
+                return prijave;
+                }
             
-            return prijave;
+
         }
         public static async Task< ObservableCollection<Uposlenik>> dajUposlenike()
         {

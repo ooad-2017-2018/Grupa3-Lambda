@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace Ambasada.Model
 {
-    class Prijava
+    public class Prijava
     {
-        // potrebno implementirati zajedno sa website-om naknadno, ne spada u projektni zadatak 6
+        public int id { get; set; }
+
+        public DateTime vrijemePrijave { get; set; }
+
+        public bool stanjePrijave { get; set; }
+
+        public int podnosilacPrijave_id { get; set; }
+
+        public virtual Podnosilac Podnosilac { get; set; }
     }
 }
