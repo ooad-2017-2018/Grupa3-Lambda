@@ -46,24 +46,14 @@ namespace Ambasada.ViewModel
             string apiUrl = "https://ambasadaapinet2018.azurewebsites.net/";   
                 using (var client = new HttpClient())
                 {
-
-                    //Postavljanje adrese URL od web api servisa
                     client.BaseAddress = new Uri(apiUrl);
                     client.DefaultRequestHeaders.Clear();
-
-                    //definisanje formata koji želimo prihvatiti
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    //Asinhrono slanje zahtjeva za podacima o studentima
-
                     HttpResponseMessage Res = await client.GetAsync("api/Prijava/");
                     //Provjera da li je rezultat uspješan
                     if (Res.IsSuccessStatusCode)
-                    {
-                        //spremanje podataka dobijenih iz responsa
+                    {  
                         var response = Res.Content.ReadAsStringAsync().Result;
-
-                    //Deserijalizacija responsa dobijenog iz apija i pretvaranje u listu
-
                     prijave = JsonConvert.DeserializeObject<ObservableCollection<Prijava>>(response);
                     }
 
