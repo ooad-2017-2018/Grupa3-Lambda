@@ -14,7 +14,7 @@ namespace Ambasada.Model
 
         public bool stanjePrijave { get; set; }
 
-        public int podnosilacPrijave_id { get; set; }
+      
         public bool izdataPrijava { get; set; }
         public virtual Podnosilac Podnosilac { get; set; }
     }

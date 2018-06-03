@@ -4,6 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 namespace Ambasada.ViewModel
 {
@@ -60,9 +61,10 @@ namespace Ambasada.ViewModel
               using(var client =new HttpClient())
             {
                 client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var Json = JsonConvert.SerializeObject(p);
 
-                HttpResponseMessage Res = await client.PutAsync(apiUrl + "api/Prijava/"+p.id.ToString(), new StringContent(Json));
+                HttpResponseMessage Res = await client.PutAsync(apiUrl + "api/Prijava/"+p.id.ToString(),new StringContent(Json));
                 
             }
         }

@@ -33,6 +33,6 @@ namespace Ambasada.Model
         public string mjestoPrebivalista { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public Prijava prijavas { get; set; }
+        public Prijava Prijava { get; set; }
     }
 }
