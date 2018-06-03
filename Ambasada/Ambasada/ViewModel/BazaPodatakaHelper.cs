@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ambasada.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
@@ -36,6 +37,11 @@ namespace Ambasada.ViewModel
             {
                 return new Uposlenik(listatmp[0].id, listatmp[0].Naziv, listatmp[0].Email, listatmp[0].DatumRodjenja, listatmp[0].Jmbg, listatmp[0].Username, listatmp[0].Password, listatmp[0].Administrator);
             }
+        }
+        public static  Task<ObservableCollection<Prijava>> dajPrijave() { //dodati async
+            ObservableCollection<Prijava> prijave = new ObservableCollection<Prijava>();
+            
+            return prijave;
         }
         public static async Task< ObservableCollection<Uposlenik>> dajUposlenike()
         {
