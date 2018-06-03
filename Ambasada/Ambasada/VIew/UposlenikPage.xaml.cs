@@ -30,6 +30,7 @@ namespace Ambasada.VIew
         {
             this.InitializeComponent();
             viewmodel.inicijaliziraj();
+            StatusLabelaPrijave.Text = "";
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -86,6 +87,11 @@ namespace Ambasada.VIew
                 ImeIPrezimeTB.Text = kliknuti.Podnosilac.naziv;
                 JMBGTB.Text = kliknuti.Podnosilac.jmbg;
                 EmailTB.Text = kliknuti.Podnosilac.email;
+                if (kliknuti.stanjePrijave)
+                {
+                    StatusLabelaPrijave.Text = "Viza je odobrena!";
+                }
+                else StatusLabelaPrijave.Text = "Viza nije odobrena!";
             }
         }
     }

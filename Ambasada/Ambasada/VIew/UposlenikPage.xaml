@@ -22,5 +22,6 @@
         <Button x:Name="OdbijPrijavuButton" Content="Odbij prijavu" HorizontalAlignment="Left" Margin="624,487,0,0" VerticalAlignment="Top" Width="138" Click="OdbijPrijavuButton_Click"/>
         <Button x:Name="PosaljiEmailButton" Content="Pošalji email" HorizontalAlignment="Left" Margin="816,422,0,0" VerticalAlignment="Top" Width="167" Click="PosaljiEmailButton_Click"/>
         <Button x:Name="LogoutButton" Content="Logout" HorizontalAlignment="Left" Margin="834,660,0,0" VerticalAlignment="Top" Height="50" Width="148" Click="LogoutButton_Click"/>
+        <TextBlock x:Name="StatusLabelaPrijave" HorizontalAlignment="Left" Margin="412,538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" Height="25" Text=""/>
     </Grid>
 </Page>
