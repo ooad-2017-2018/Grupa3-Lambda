@@ -1,5 +1,8 @@
 ﻿using Ambasada.Model;
 using Ambasada.ViewModel;
+using Syncfusion.Drawing;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,6 +10,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -36,10 +40,24 @@ namespace Ambasada.VIew
             var lista = viewmodel.dajListuPrijava();
             ListaOdobrenihVizaLB.ItemsSource = lista;
         }
-        private Prijava kliknuti = new Prijava();
+       
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
-            //isprintaj kliknutog
+            var clicked = (Prijava)ListaOdobrenihVizaLB.SelectedItem;
+            if (clicked != null)
+            {
+                PdfDocument pd = new PdfDocument();
+                PdfPage pdpage = pd.Pages.Add();
+                var x = pdpage.CreateTemplate();
+                x.Graphics.DrawString("POTVRDA O IZDATOJ VIZI\n\n Poštovani "+clicked.Podnosilac.naziv+" Vaš zahtjev za boravak u državi " +
+                    "Elektrotehni podnijet na datum "+clicked.vrijemePrijave.ToString("dd/mm/yyyy/")+" je odobren. Želimo vam ugodan" +
+                    "boravak u našoj državi", new PdfStandardFont(PdfFontFamily.Helvetica, 14), new PdfSolidBrush(Color.Black),5,5) ;
+                pdpage.Graphics.DrawPdfTemplate(x,PointF.Empty);
+                string a = clicked.Podnosilac.naziv + " viza.pdf";
+                pd.Save(File.Create(a));
+  
+            }
+      
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -53,7 +71,7 @@ namespace Ambasada.VIew
         }
         private void ListaOdobrenihVizaLB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            kliknuti = (Prijava)ListaOdobrenihVizaLB.SelectedItem;
+           
         }
     }
 }
