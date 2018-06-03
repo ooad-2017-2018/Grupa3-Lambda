@@ -19,9 +19,8 @@ namespace AmbasadaAPI.NET.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Podnosilac>()
-                .HasMany(e => e.Prijavas)
-                .WithRequired(e => e.Podnosilac)
-                .HasForeignKey(e => e.podnosilacPrijave_id);
+                .HasRequired(e => e.Prijava)
+                .WithRequiredPrincipal(e => e.Podnosilac);
 
             modelBuilder.Entity<Uposlenici>()
                 .Property(e => e.createdAt)

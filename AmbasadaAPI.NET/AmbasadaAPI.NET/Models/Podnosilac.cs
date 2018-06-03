@@ -9,11 +9,6 @@ namespace AmbasadaAPI.NET.Models
     [Table("Podnosilac")]
     public partial class Podnosilac
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Podnosilac()
-        {
-            Prijavas = new HashSet<Prijava>();
-        }
 
         public int id { get; set; }
 
@@ -33,7 +28,6 @@ namespace AmbasadaAPI.NET.Models
         [Required]
         public string mjestoPrebivalista { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Prijava> Prijavas { get; set; }
+        public Prijava Prijava { get; set; }
     }
 }
