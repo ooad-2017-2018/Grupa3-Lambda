@@ -24,6 +24,7 @@ namespace Ambasada
     public sealed partial class AdminPanel : Page
     {
         private AdminViewModel viewmodel= new AdminViewModel();
+        //private UposlenikViewModel uviewmodel = new UposlenikViewModel();
         public AdminPanel()
         {
             this.InitializeComponent();

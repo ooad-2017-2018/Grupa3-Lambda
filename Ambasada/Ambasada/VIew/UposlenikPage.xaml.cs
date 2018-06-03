@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Ambasada.VIew;
+using Ambasada.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,11 +24,16 @@ namespace Ambasada.VIew
     /// </summary>
     public sealed partial class UposlenikPage : Page
     {
+        UposlenikViewModel viewmodel = new UposlenikViewModel();
         public UposlenikPage()
         {
             this.InitializeComponent();
         }
-
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            viewmodel = (UposlenikViewModel)e.Parameter;
+        }
         private void PrintVizeButton_Click(object sender, RoutedEventArgs e)
         {
             //uradi nešto što će se povezati sa printerom i isprintati
@@ -51,7 +57,7 @@ namespace Ambasada.VIew
         private void PosaljiEmailButton_Click(object sender, RoutedEventArgs e)
         {
             //šalje sve na formu za popunjavanje emaila
-            this.Frame.Navigate(typeof(SlanjeEmail)); //fali helper kao drugi arg
+            this.Frame.Navigate(typeof(SlanjeEmail),viewmodel); //fali helper kao drugi arg
         }
 
         private void DownloadPDFPrijaveButton_Click(object sender, RoutedEventArgs e)
