@@ -15,8 +15,6 @@ namespace AmbasadaAPI.NET.Models
 
         public bool stanjePrijave { get; set; }
 
-        public int podnosilacPrijave_id { get; set; }
-
         public virtual Podnosilac Podnosilac { get; set; }
     }
 }
