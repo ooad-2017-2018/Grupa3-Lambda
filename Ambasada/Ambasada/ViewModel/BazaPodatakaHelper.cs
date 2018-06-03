@@ -41,9 +41,10 @@ namespace Ambasada.ViewModel
                 return new Uposlenik(listatmp[0].id, listatmp[0].Naziv, listatmp[0].Email, listatmp[0].DatumRodjenja, listatmp[0].Jmbg, listatmp[0].Username, listatmp[0].Password, listatmp[0].Administrator);
             }
         }
+       public static string apiUrl = "https://ambasadaapinet2018.azurewebsites.net/";
         public static async Task<ObservableCollection<Prijava>> dajPrijave() { //dodati async
             ObservableCollection<Prijava> prijave = new ObservableCollection<Prijava>();
-            string apiUrl = "https://ambasadaapinet2018.azurewebsites.net/";   
+           
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri(apiUrl);
@@ -59,7 +60,9 @@ namespace Ambasada.ViewModel
 
                 return prijave;
                 }
-            
+        }
+        public static async void updatePrijavu(Prijava p)
+        {
 
         }
         public static async Task< ObservableCollection<Uposlenik>> dajUposlenike()

@@ -14,7 +14,6 @@ namespace AmbasadaAPI.NET.Models
 
         public virtual DbSet<Podnosilac> Podnosilacs { get; set; }
         public virtual DbSet<Prijava> Prijavas { get; set; }
-        public virtual DbSet<Uposlenici> Uposlenicis { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -22,21 +21,8 @@ namespace AmbasadaAPI.NET.Models
                 .HasRequired(e => e.Prijava)
                 .WithRequiredPrincipal(e => e.Podnosilac);
 
-            modelBuilder.Entity<Uposlenici>()
-                .Property(e => e.createdAt)
-                .HasPrecision(3);
+        
 
-            modelBuilder.Entity<Uposlenici>()
-                .Property(e => e.updatedAt)
-                .HasPrecision(3);
-
-            modelBuilder.Entity<Uposlenici>()
-                .Property(e => e.version)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Uposlenici>()
-                .Property(e => e.DatumRodjenja)
-                .HasPrecision(3);
         }
     }
 }
