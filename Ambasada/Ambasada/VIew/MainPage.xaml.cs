@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WinUX;
+using Ambasada.VIew;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -28,6 +29,7 @@ namespace Ambasada
     public sealed partial class MainPage : Page
     {
         private AdminViewModel viewmodel = new AdminViewModel();
+        private UposlenikViewModel uviewmodel = new UposlenikViewModel();
         public MainPage()
         {
             this.InitializeComponent();
@@ -40,7 +42,7 @@ namespace Ambasada
             {
                 var k = await BazaPodatakaHelper.dajUposlenika(UsernameTB.Text, pwbox.Password);
                 if (k.Administrator) this.Frame.Navigate(typeof(AdminPanel),viewmodel);
-                else this.Frame.Navigate(typeof(UposlenikPage));
+                else this.Frame.Navigate(typeof(UposlenikPage),uviewmodel);
             }
             catch (Exception ex){
                 status.Text = ex.ToString();

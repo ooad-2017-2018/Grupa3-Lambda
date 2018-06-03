@@ -12,20 +12,57 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Ambasada.VIew;
 using Ambasada.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Ambasada
+namespace Ambasada.VIew
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public partial class UposlenikPage : Page
+    public sealed partial class UposlenikPage : Page
     {
+        UposlenikViewModel viewmodel = new UposlenikViewModel();
         public UposlenikPage()
         {
-          
+            this.InitializeComponent();
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            viewmodel = (UposlenikViewModel)e.Parameter;
+        }
+        private void PrintVizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            //uradi nešto što će se povezati sa printerom i isprintati
+        }
+
+        private void PotvrdiPrijavuButton_Click(object sender, RoutedEventArgs e)
+        {
+            //odobri selektovanu prijavu za tombolu//
+        }
+
+        private void OdbijPrijavuButton_Click(object sender, RoutedEventArgs e)
+        {
+            //odbij selektovanu prijavu za tombolu
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            //logout korisnika, vraća na login page
+        }
+
+        private void PosaljiEmailButton_Click(object sender, RoutedEventArgs e)
+        {
+            //šalje sve na formu za popunjavanje emaila
+            this.Frame.Navigate(typeof(SlanjeEmail),viewmodel); //fali helper kao drugi arg
+        }
+
+        private void DownloadPDFPrijaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            //servis da se učita PDF fajl trenutačne prijave
         }
     }
 }
