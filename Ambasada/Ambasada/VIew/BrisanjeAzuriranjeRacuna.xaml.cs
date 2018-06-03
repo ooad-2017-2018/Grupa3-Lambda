@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using Ambasada.ViewModel;
 using Windows.UI.Popups;
+using Ambasada.Model;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -29,6 +30,7 @@ namespace Ambasada
     public sealed partial class BrisanjeAzuriranjeRacuna : Page
     {
         private AdminViewModel viewmodel = new AdminViewModel();
+        private Tombola tombola = new Tombola();
         public BrisanjeAzuriranjeRacuna()
         {
 

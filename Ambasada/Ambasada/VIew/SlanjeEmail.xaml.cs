@@ -16,38 +16,27 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Ambasada
+namespace Ambasada.VIew
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AdminPanel : Page
+    public sealed partial class SlanjeEmail : Page
     {
-        private AdminViewModel viewmodel= new AdminViewModel();
-        //private UposlenikViewModel uviewmodel = new UposlenikViewModel();
-        public AdminPanel()
+        private UposlenikViewModel viewmodel= new UposlenikViewModel();
+        public SlanjeEmail()
         {
             this.InitializeComponent();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            viewmodel = (AdminViewModel)e.Parameter;
-            
-        }
-        private void KreiranjeBrisanjeUposlenika_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(UposleniciEdit),viewmodel);
+            viewmodel = (UposlenikViewModel)e.Parameter;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void NazadButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UredjivanjeTemplejtaZaEmail),viewmodel);
-        }
-
-        private void PokretanjeTombole_Click(object sender, RoutedEventArgs e)
-        {
-
+            this.Frame.Navigate(typeof(UposlenikPage),viewmodel);
         }
     }
 }

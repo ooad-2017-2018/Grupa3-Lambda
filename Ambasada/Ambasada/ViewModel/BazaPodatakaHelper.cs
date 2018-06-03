@@ -1,16 +1,10 @@
 ﻿using Ambasada.Model;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
-
 namespace Ambasada.ViewModel
 {
     public static class BazaPodatakaHelper
@@ -41,9 +35,10 @@ namespace Ambasada.ViewModel
                 return new Uposlenik(listatmp[0].id, listatmp[0].Naziv, listatmp[0].Email, listatmp[0].DatumRodjenja, listatmp[0].Jmbg, listatmp[0].Username, listatmp[0].Password, listatmp[0].Administrator);
             }
         }
+       public static string apiUrl = "https://ambasadaapinet2018.azurewebsites.net/";
         public static async Task<ObservableCollection<Prijava>> dajPrijave() { //dodati async
             ObservableCollection<Prijava> prijave = new ObservableCollection<Prijava>();
-            string apiUrl = "https://ambasadaapinet2018.azurewebsites.net/";   
+           
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri(apiUrl);
@@ -59,13 +54,23 @@ namespace Ambasada.ViewModel
 
                 return prijave;
                 }
-            
+        }
+        public static async void updatePrijavu(Prijava p)
+        {
+              using(var client =new HttpClient())
+            {
+                client.DefaultRequestHeaders.Clear();
+                var Json = JsonConvert.SerializeObject(p);
 
+                HttpResponseMessage Res = await client.PutAsync(apiUrl + "api/Prijava/"+p.id.ToString(), new StringContent(Json));
+                
+            }
         }
         public static async Task< ObservableCollection<Uposlenik>> dajUposlenike()
         {
             ObservableCollection<Uposlenik> tmp = new ObservableCollection<Uposlenik>();
             var lista = App.MobileService.GetTable<uposlenici>();
+     
             var kor = from x in lista
                       where x.Administrator == false
                       select x;
