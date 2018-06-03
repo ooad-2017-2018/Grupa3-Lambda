@@ -35,7 +35,7 @@ namespace Ambasada.VIew
 
         private void PotvrdiPrijavuButton_Click(object sender, RoutedEventArgs e)
         {
-            //odobri selektovanu prijavu za tombolu
+            //odobri selektovanu prijavu za tombolu//
         }
 
         private void OdbijPrijavuButton_Click(object sender, RoutedEventArgs e)
