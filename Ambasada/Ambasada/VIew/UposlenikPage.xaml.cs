@@ -41,6 +41,7 @@ namespace Ambasada.VIew
         private void PrintVizeButton_Click(object sender, RoutedEventArgs e)
         {
             //uradi nešto što će se povezati sa printerom i isprintati
+            this.Frame.Navigate(typeof(PrintViza), viewmodel);
         }
 
         private void PotvrdiPrijavuButton_Click(object sender, RoutedEventArgs e)
@@ -48,6 +49,7 @@ namespace Ambasada.VIew
             //odobri selektovanu prijavu za tombolu//
             if (!(kliknuti is null)) {
                 kliknuti.stanjePrijave = true;
+                BazaPodatakaHelper.updatePrijavu(kliknuti);
             }
         }
 
@@ -56,6 +58,7 @@ namespace Ambasada.VIew
             //odbij selektovanu prijavu za tombolu
             if (!(kliknuti is null)) {
                 kliknuti.stanjePrijave = false;
+                BazaPodatakaHelper.updatePrijavu(kliknuti);
             }
         }
 
