@@ -70,6 +70,7 @@ namespace Ambasada.ViewModel
         {
             ObservableCollection<Uposlenik> tmp = new ObservableCollection<Uposlenik>();
             var lista = App.MobileService.GetTable<uposlenici>();
+     
             var kor = from x in lista
                       where x.Administrator == false
                       select x;

@@ -29,6 +29,7 @@ namespace Ambasada
     public sealed partial class MainPage : Page
     {
         private AdminViewModel viewmodel = new AdminViewModel();
+
         private UposlenikViewModel uviewmodel = new UposlenikViewModel();
         public MainPage()
         {
@@ -37,6 +38,7 @@ namespace Ambasada
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            
             status.Text = "";
             try
             {
@@ -47,6 +49,9 @@ namespace Ambasada
             catch (Exception ex){
                 status.Text = ex.ToString();
             }
+ 
+           
+
         }
     }
 }

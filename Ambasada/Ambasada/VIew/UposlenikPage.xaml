@@ -21,7 +21,6 @@
         <Button x:Name="PotvrdiPrijavuButton" Content="Potvrdi prijavu" HorizontalAlignment="Left" Margin="395,486,0,0" VerticalAlignment="Top" Width="144" Click="PotvrdiPrijavuButton_Click"/>
         <Button x:Name="OdbijPrijavuButton" Content="Odbij prijavu" HorizontalAlignment="Left" Margin="624,487,0,0" VerticalAlignment="Top" Width="138" Click="OdbijPrijavuButton_Click"/>
         <Button x:Name="PosaljiEmailButton" Content="Pošalji email" HorizontalAlignment="Left" Margin="816,422,0,0" VerticalAlignment="Top" Width="167" Click="PosaljiEmailButton_Click"/>
-        <Button x:Name="DownloadPDFPrijaveButton" Content="Download PDF prijave" HorizontalAlignment="Left" Margin="816,279,0,0" VerticalAlignment="Top" Click="DownloadPDFPrijaveButton_Click"/>
         <Button x:Name="LogoutButton" Content="Logout" HorizontalAlignment="Left" Margin="834,660,0,0" VerticalAlignment="Top" Height="50" Width="148" Click="LogoutButton_Click"/>
     </Grid>
 </Page>
