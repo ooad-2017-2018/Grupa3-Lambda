@@ -53,5 +53,6 @@ namespace Ambasada
         {
             this.Frame.Navigate(typeof(AdminPanel),viewmodel);
         }
+
     }
 }
