@@ -14,7 +14,7 @@ namespace AmbasadaAPI.NET.Models
         public DateTime vrijemePrijave { get; set; }
 
         public bool stanjePrijave { get; set; }
-
+        public bool izdataPrijava { get; set; }
         public virtual Podnosilac Podnosilac { get; set; }
     }
 }
