@@ -1,16 +1,10 @@
 ﻿using Ambasada.Model;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
-
 namespace Ambasada.ViewModel
 {
     public static class BazaPodatakaHelper
@@ -63,7 +57,14 @@ namespace Ambasada.ViewModel
         }
         public static async void updatePrijavu(Prijava p)
         {
+              using(var client =new HttpClient())
+            {
+                client.DefaultRequestHeaders.Clear();
+                var Json = JsonConvert.SerializeObject(p);
 
+                HttpResponseMessage Res = await client.PutAsync(apiUrl + "api/Prijava/"+p.id.ToString(), new StringContent(Json));
+                
+            }
         }
         public static async Task< ObservableCollection<Uposlenik>> dajUposlenike()
         {
