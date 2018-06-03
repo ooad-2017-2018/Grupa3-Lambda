@@ -17,5 +17,9 @@ namespace Ambasada.Model
         public int podnosilacPrijave_id { get; set; }
         public bool izdataPrijava { get; set; }
         public virtual Podnosilac Podnosilac { get; set; }
+
+        public override string ToString() {
+            return Podnosilac.naziv;
+        }
     }
 }
