@@ -79,6 +79,13 @@ namespace AmbasadaAPI.NET.Controllers
                 return BadRequest(ModelState);
             }
 
+            Prijava prijava = new Prijava();
+            prijava.vrijemePrijave = DateTime.Now;
+            prijava.stanjePrijave = false;
+            prijava.izdataPrijava = false;
+            prijava.Podnosilac = podnosilac;
+            podnosilac.Prijava = prijava;
+
             db.Podnosilacs.Add(podnosilac);
             db.SaveChanges();
 
