@@ -70,7 +70,7 @@ namespace Ambasada.ViewModel
                 }
                 ObservableCollection<Prijava> vrati = new ObservableCollection<Prijava>();
                 foreach (var x in prijavice) {
-                    if (x.stanjePrijave)
+                    if (x.stanjePrijave && !x.izdataPrijava)
                         vrati.Add(x);
                 }
                 return vrati;
@@ -109,7 +109,7 @@ namespace Ambasada.ViewModel
 
                 var json = JsonConvert.SerializeObject(p);
 
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, apiUrl+ "api/Prijava/" + p.id);
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put , apiUrl+ "api/Prijava/" + p.id);
                 request.Content = new StringContent(json,
                                                     Encoding.UTF8,
                                                     "application/json");//CONTENT-TYPE header
