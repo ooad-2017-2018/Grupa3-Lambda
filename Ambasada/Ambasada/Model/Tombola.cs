@@ -14,15 +14,17 @@ namespace Ambasada.Model
         public Tombola() {
 
         }
-        public async void uradiTombolu() {
+        public async Task<ObservableCollection<Prijava>> uradiTombolu() {
             lista = await BazaPodatakaHelper.dajPotvrdjenePrijave();
             Random generator = new Random();
             ObservableCollection<Prijava> pobjednici = new ObservableCollection<Prijava>();
-            for (int i = 0; i < 5; i++) { //izvlači se po 5 pobjednika
+
+            for (int i = 0; i < lista.Count/3; i++) { //izvlači se 1/3 iz liste za pobjednike
                 var dobio = (generator.Next()) % (lista.Count); // modulo za ograničavanje indeksa
                 pobjednici.Add(lista.ElementAt(dobio));
                 lista.RemoveAt(dobio);
             }
+            return pobjednici;
         }
     }
 }

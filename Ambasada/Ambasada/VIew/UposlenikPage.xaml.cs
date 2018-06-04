@@ -51,6 +51,7 @@ namespace Ambasada.VIew
             if (!(kliknuti is null)) {
                 kliknuti.stanjePrijave = true;
                 BazaPodatakaHelper.updatePrijavu(kliknuti);
+                StatusLabelaPrijave.Text = "Viza je odobrena!";
             }
         }
 
@@ -60,6 +61,7 @@ namespace Ambasada.VIew
             if (!(kliknuti is null)) {
                 kliknuti.stanjePrijave = false;
                 BazaPodatakaHelper.updatePrijavu(kliknuti);
+                StatusLabelaPrijave.Text = "Viza nije odobrena!";
             }
         }
 

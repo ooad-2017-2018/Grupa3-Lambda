@@ -122,6 +122,9 @@
     <Compile Include="VIew\SlanjeEmail.xaml.cs">
       <DependentUpon>SlanjeEmail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VIew\TombolaPanel.xaml.cs">
+      <DependentUpon>TombolaPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VIew\UposleniciEdit.xaml.cs">
       <DependentUpon>UposleniciEdit.xaml</DependentUpon>
     </Compile>
@@ -175,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VIew\SlanjeEmail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VIew\TombolaPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
