@@ -1,4 +1,5 @@
-﻿using Ambasada.ViewModel;
+﻿using Ambasada.VIew;
+using Ambasada.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,7 +48,7 @@ namespace Ambasada
 
         private void PokretanjeTombole_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(TombolaPanel), viewmodel);
         }
     }
 }

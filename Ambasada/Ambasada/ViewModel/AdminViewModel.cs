@@ -10,8 +10,8 @@ namespace Ambasada.ViewModel
 {
     public class AdminViewModel
     {
-        private Tombola tombola;
-        private ObservableCollection<Uposlenik> lista;
+        private Tombola tombola = new Tombola();
+        private ObservableCollection<Uposlenik> lista = new ObservableCollection<Uposlenik>();
 
         public AdminViewModel()
         {
