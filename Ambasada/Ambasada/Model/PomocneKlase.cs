@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ambasada.Model
 {
-    public class uposlenici
+    public class Uposlenici
     {
-        public string id { get; set; }
+        public string Id { get; set; }
         // 
         public string Username { get; set; }
         public string Password { get; set; }

@@ -43,11 +43,13 @@ namespace Ambasada
             status.Text = "";
             try
             {
-                var k = await BazaPodatakaHelper.dajUposlenika(UsernameTB.Text, pwbox.Password);
+                var k = await BazaPodatakaHelper.DajUposlenika(UsernameTB.Text, pwbox.Password);
                 if (k.Administrator) this.Frame.Navigate(typeof(AdminPanel),viewmodel);
                 else this.Frame.Navigate(typeof(UposlenikPage),uviewmodel);
             }
-            catch (Exception ex){// me valja username ili password
+            catch (Exception ex)
+            {// me valja username ili password
+                status.Text = ex.Message;
                 status.Text = "Pogrešno ste unijeli username/password ili je došlo do greške na serveru.";
                 //status.Text = ex.ToString();
             }

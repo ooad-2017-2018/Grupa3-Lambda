@@ -13,7 +13,6 @@ namespace Ambasada
         string email;
         DateTime datumRodjenja;
         string jmbg;
-        readonly int idOsobe;
 
         protected Osoba(string naziv, string email, DateTime datumRodjenja, string jmbg)
         {
@@ -38,8 +37,9 @@ namespace Ambasada
         public string Jmbg { get => jmbg; set{
                 if (!App.ValidacijaJMBGa(value, datumRodjenja)) throw new Exception("Nevažeći JMBG");
                 jmbg = value; } }
-       /* public int IdOsobe { get => idOsobe; set {
-                if (idOsobe.GetType() != typeof(int) || idOsobe <= 0) throw new Exception("Nevažeći ID osobe."); 
-                idOsobe = value; } } */
+
+        /* public int IdOsobe { get => idOsobe; set {
+if (idOsobe.GetType() != typeof(int) || idOsobe <= 0) throw new Exception("Nevažeći ID osobe."); 
+idOsobe = value; } } */
     }
 }

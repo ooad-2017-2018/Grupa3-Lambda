@@ -19,7 +19,7 @@ namespace Ambasada.ViewModel
         }
 
         public async void inicijaliziraj() {
-            Lista = await BazaPodatakaHelper.dajUposlenike();
+            Lista = await BazaPodatakaHelper.DajUposlenike();
         }
         
         public Tombola Tombola { get => tombola; set => tombola = value; }

@@ -16,7 +16,7 @@ namespace Ambasada.ViewModel
             inicijaliziraj();
         }
         public async void inicijaliziraj() {
-            listaPrijava = await BazaPodatakaHelper.dajPrijave();
+            listaPrijava = await BazaPodatakaHelper.DajPrijave();
         }
         public ObservableCollection<Prijava> dajListuPrijava() {
             return listaPrijava;

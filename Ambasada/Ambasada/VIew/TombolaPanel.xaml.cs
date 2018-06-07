@@ -37,7 +37,7 @@ namespace Ambasada.VIew
             base.OnNavigatedTo(e);
             viewmodel = (AdminViewModel)e.Parameter;
             ObavjestenjeLabela.Text = "";
-            proslePrijave =await BazaPodatakaHelper.dajPotvrdjenePrijave();
+            proslePrijave =await BazaPodatakaHelper.DajPotvrdjenePrijave();
             ListaOdobrenihPrijavaLB.ItemsSource = proslePrijave;
             ObavjestenjeLabela.Text = "Učitane su odobrene prijave.";
         }
@@ -53,7 +53,7 @@ namespace Ambasada.VIew
             {
                 proslePrijave.Remove(x); // šutanje uspjelih iz prijava.
                 x.izdataPrijava = true; // 
-                BazaPodatakaHelper.updatePrijavu(x);
+                BazaPodatakaHelper.UpdatePrijavu(x);
             }
         }
 

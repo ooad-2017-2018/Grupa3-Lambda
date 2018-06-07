@@ -76,7 +76,7 @@ namespace Ambasada
             var kliknuti = (Uposlenik)ListaUposlenika.SelectedItem;
             if (!(kliknuti is null))
             {
-                await BazaPodatakaHelper.obrisiUposlenikaAsync(kliknuti);
+                await BazaPodatakaHelper.ObrisiUposlenikaAsync(kliknuti);
                 //ListaUposlenika.Items.RemoveAt(ListaUposlenika.SelectedIndex);
                 viewmodel.Lista.Remove(kliknuti);
                 EmailTB.Text = ""; JMBGTB.Text = ""; UsernameTB.Text = "";
@@ -102,7 +102,7 @@ namespace Ambasada
                     Uposlenik u = new Uposlenik(kliknuti.Id,ImePrezimeTB.Text,EmailTB.Text,DatumRodjenjaDP.Date.Date,JMBGTB.Text,UsernameTB.Text,PasswordTB.Password,kliknuti.Administrator);
 
                     viewmodel.Lista[ListaUposlenika.SelectedIndex] = u;
-                    BazaPodatakaHelper.azurirajUposlenika(kliknuti);
+                    BazaPodatakaHelper.AzurirajUposlenika(kliknuti);
 
 
 

@@ -10,9 +10,9 @@ namespace Ambasada.Model
 {
     public static class BazaPodatakaHelper
     {
-        public static async Task<Uposlenik> dajUposlenika(string username, string password)
+        public static async Task<Uposlenik> DajUposlenika(string username, string password)
         {
-            var lista = App.MobileService.GetTable<uposlenici>();
+            var lista = App.MobileService.GetTable<Uposlenici>();
             var kor = from x in lista
                       where x.Username == username && x.Password == password 
                       select x;
@@ -20,24 +20,24 @@ namespace Ambasada.Model
             if (listatmp.Count == 0) throw new Exception("Nepostojeci korisnik");
             else
             {
-                return new Uposlenik(listatmp[0].id,listatmp[0].Naziv, listatmp[0].Email, listatmp[0].DatumRodjenja, listatmp[0].Jmbg, listatmp[0].Username, listatmp[0].Password, listatmp[0].Administrator);
+                return new Uposlenik(listatmp[0].Id,listatmp[0].Naziv, listatmp[0].Email, listatmp[0].DatumRodjenja, listatmp[0].Jmbg, listatmp[0].Username, listatmp[0].Password, listatmp[0].Administrator);
             }
         }
-        public static async Task<Uposlenik> dajUposlenika(string id)
+        public static async Task<Uposlenik> DajUposlenika(string id)
         {
-            var lista = App.MobileService.GetTable<uposlenici>();
+            var lista = App.MobileService.GetTable<Uposlenici>();
             var kor = from x in lista
-                      where x.id == id 
+                      where x.Id == id 
                       select x;
             var listatmp = await kor.ToListAsync();
             if (listatmp.Count == 0) throw new Exception("Nepostojeci korisnik");
             else
             {
-                return new Uposlenik(listatmp[0].id, listatmp[0].Naziv, listatmp[0].Email, listatmp[0].DatumRodjenja, listatmp[0].Jmbg, listatmp[0].Username, listatmp[0].Password, listatmp[0].Administrator);
+                return new Uposlenik(listatmp[0].Id, listatmp[0].Naziv, listatmp[0].Email, listatmp[0].DatumRodjenja, listatmp[0].Jmbg, listatmp[0].Username, listatmp[0].Password, listatmp[0].Administrator);
             }
         }
        public static string apiUrl = "https://ambasadaapinet2018.azurewebsites.net/";
-        public static async Task<ObservableCollection<Prijava>> dajPrijave() { //dodati async
+        public static async Task<ObservableCollection<Prijava>> DajPrijave() { //dodati async
             ObservableCollection<Prijava> prijave = new ObservableCollection<Prijava>();
            
                 using (var client = new HttpClient())
@@ -56,7 +56,7 @@ namespace Ambasada.Model
                 return prijave;
                 }
         }
-        public static async Task<ObservableCollection<Prijava>> dajPotvrdjenePrijave() {
+        public static async Task<ObservableCollection<Prijava>> DajPotvrdjenePrijave() {
             ObservableCollection<Prijava> prijavice = new ObservableCollection<Prijava>();
             using (var client = new HttpClient()) {
                 client.BaseAddress = new Uri(apiUrl);
@@ -76,7 +76,7 @@ namespace Ambasada.Model
                 return vrati;
             }
         }
-        public static async Task<ObservableCollection<Prijava>> dajOdbijenePrijave() {
+        public static async Task<ObservableCollection<Prijava>> DajOdbijenePrijave() {
             ObservableCollection<Prijava> prijavice = new ObservableCollection<Prijava>();
             using (var client = new HttpClient())
             {
@@ -99,7 +99,7 @@ namespace Ambasada.Model
                 return vrati;
             }
         }
-        public static async void updatePrijavu(Prijava p)
+        public static async void UpdatePrijavu(Prijava p)
         {
               using(var client =new HttpClient())
             {
@@ -109,7 +109,9 @@ namespace Ambasada.Model
 
                 var json = JsonConvert.SerializeObject(p);
 
+#pragma warning disable IDE0017 // Simplify object initialization
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put , apiUrl+ "api/Prijava/" + p.id);
+#pragma warning restore IDE0017 // Simplify object initialization
                 request.Content = new StringContent(json,
                                                     Encoding.UTF8,
                                                     "application/json");//CONTENT-TYPE header
@@ -122,10 +124,10 @@ namespace Ambasada.Model
 
             }
         }
-        public static async Task< ObservableCollection<Uposlenik>> dajUposlenike()
+        public static async Task< ObservableCollection<Uposlenik>> DajUposlenike()
         {
             ObservableCollection<Uposlenik> tmp = new ObservableCollection<Uposlenik>();
-            var lista = App.MobileService.GetTable<uposlenici>();
+            var lista = App.MobileService.GetTable<Uposlenici>();
      
             var kor = from x in lista
                       where x.Administrator == false
@@ -133,14 +135,16 @@ namespace Ambasada.Model
             var listatmp = await kor.ToListAsync();
             foreach (var x in listatmp)
             {
-                tmp.Add( new Uposlenik(x.id, x.Naziv, x.Email, x.DatumRodjenja, x.Jmbg, x.Username, x.Password, x.Administrator));
+                tmp.Add( new Uposlenik(x.Id, x.Naziv, x.Email, x.DatumRodjenja, x.Jmbg, x.Username, x.Password, x.Administrator));
             }
             return tmp;
 
         }
-        public static async void dodajUposlenika(Uposlenik u) {
-            var lista = App.MobileService.GetTable<uposlenici>();
-            uposlenici upo = new uposlenici();
+        public static async void DodajUposlenika(Uposlenik u) {
+            var lista = App.MobileService.GetTable<Uposlenici>();
+#pragma warning disable IDE0017 // Simplify object initialization
+            Uposlenici upo = new Uposlenici();
+#pragma warning restore IDE0017 // Simplify object initialization
             upo.Administrator = false;
             upo.Naziv = u.Naziv;
             upo.Jmbg = u.Jmbg;
@@ -150,10 +154,12 @@ namespace Ambasada.Model
             upo.DatumRodjenja = u.DatumRodjenja;
             await lista.InsertAsync(upo);
         }
-        public static async void azurirajUposlenika(Uposlenik u) {
-            var lista = App.MobileService.GetTable<uposlenici>();
-            uposlenici editovani = new uposlenici();
-            editovani.id = u.Id;
+        public static async void AzurirajUposlenika(Uposlenik u) {
+            var lista = App.MobileService.GetTable<Uposlenici>();
+#pragma warning disable IDE0017 // Simplify object initialization
+            Uposlenici editovani = new Uposlenici();
+#pragma warning restore IDE0017 // Simplify object initialization
+            editovani.Id = u.Id;
             editovani.Administrator = false;
             editovani.Naziv = u.Naziv;
             editovani.Jmbg = u.Jmbg;
@@ -163,12 +169,12 @@ namespace Ambasada.Model
             editovani.DatumRodjenja = u.DatumRodjenja;
             await lista.UpdateAsync(editovani);
         }
-        public static async Task obrisiUposlenikaAsync(Uposlenik u)
+        public static async Task ObrisiUposlenikaAsync(Uposlenik u)
         {
             ObservableCollection<Uposlenik> tmp = new ObservableCollection<Uposlenik>();
-            var lista = App.MobileService.GetTable<uposlenici>();
+            var lista = App.MobileService.GetTable<Uposlenici>();
             var kor = from x in lista
-                      where x.id==u.Id
+                      where x.Id==u.Id
                       select x;
             var listatmp = await kor.ToListAsync();
             await lista.DeleteAsync(listatmp[0]);

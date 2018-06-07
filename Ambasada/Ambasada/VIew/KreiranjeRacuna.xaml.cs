@@ -48,7 +48,7 @@ namespace Ambasada
             try
             {
                 viewmodel.Lista.Add(new Uposlenik("-1", ImePrezimeTB.Text, EmailTB.Text, DatumRodjenjaDP.Date.Date, JMBGTB.Text, UsernameTB.Text, PasswordTB.Password, false));
-                BazaPodatakaHelper.dodajUposlenika(new Uposlenik("-1", ImePrezimeTB.Text, EmailTB.Text, DatumRodjenjaDP.Date.Date, JMBGTB.Text, UsernameTB.Text, PasswordTB.Password, false));
+                BazaPodatakaHelper.DodajUposlenika(new Uposlenik("-1", ImePrezimeTB.Text, EmailTB.Text, DatumRodjenjaDP.Date.Date, JMBGTB.Text, UsernameTB.Text, PasswordTB.Password, false));
                 var dialog = new MessageDialog("Uspjesno ste dodali uposlenika!");
                 await dialog.ShowAsync();
                 this.Frame.Navigate(typeof(UposleniciEdit),viewmodel);

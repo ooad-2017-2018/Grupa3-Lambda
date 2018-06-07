@@ -15,7 +15,7 @@ namespace Ambasada.Model
 
         }
         public async Task<ObservableCollection<Prijava>> uradiTombolu() {
-            lista = await BazaPodatakaHelper.dajPotvrdjenePrijave();
+            lista = await BazaPodatakaHelper.DajPotvrdjenePrijave();
             Random generator = new Random();
             ObservableCollection<Prijava> pobjednici = new ObservableCollection<Prijava>();
 
