@@ -13,7 +13,7 @@ namespace Ambasada
         string email;
         DateTime datumRodjenja;
         string jmbg;
-        int idOsobe;
+        readonly int idOsobe;
 
         protected Osoba(string naziv, string email, DateTime datumRodjenja, string jmbg)
         {
