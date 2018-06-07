@@ -41,7 +41,7 @@ namespace Ambasada.VIew
             ListaOdobrenihVizaLB.ItemsSource = lista;
         }
        
-        private async void PrintButton_Click(object sender, RoutedEventArgs e)
+        private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
             /*
             var clicked = (Prijava)ListaOdobrenihVizaLB.SelectedItem;
