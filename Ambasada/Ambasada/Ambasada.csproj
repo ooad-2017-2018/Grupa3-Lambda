@@ -96,8 +96,8 @@
     <Compile Include="Model\Prijava.cs" />
     <Compile Include="Model\Tombola.cs" />
     <Compile Include="ViewModel\AdminViewModel.cs" />
-    <Compile Include="ViewModel\BazaPodatakaHelper.cs" />
-    <Compile Include="ViewModel\pomocneKlase.cs" />
+    <Compile Include="Model\BazaPodatakaHelper.cs" />
+    <Compile Include="Model\PomocneKlase.cs" />
     <Compile Include="ViewModel\UposlenikViewModel.cs" />
     <Compile Include="VIew\AdminPanel.xaml.cs">
       <DependentUpon>AdminPanel.xaml</DependentUpon>
