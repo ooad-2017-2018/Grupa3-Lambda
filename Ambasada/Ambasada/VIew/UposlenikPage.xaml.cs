@@ -67,6 +67,7 @@ namespace Ambasada.VIew
                 kliknuti.stanjePrijave = false;
                 BazaPodatakaHelper.UpdatePrijavu(kliknuti);
                 StatusLabelaPrijave.Text = "Viza nije odobrena!";
+                Email a = new Email();
                 a.Subject = "Odbijena prijava";
                 a.Address = kliknuti.Podnosilac.email;
                 a.Body = "Poštovani, Vaša prijava za vizu je nažalost odbijena";
