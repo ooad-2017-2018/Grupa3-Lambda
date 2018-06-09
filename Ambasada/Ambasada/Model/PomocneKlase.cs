@@ -20,7 +20,13 @@ namespace Ambasada.Model
         public string Jmbg { get; set; }
   
     }
-   
+    public class Email
+    {
+        public string Address { get; set; }
+        public string Subject { get; set; }
+        public string Body { get; set; }
+    }
+
 }
 
 

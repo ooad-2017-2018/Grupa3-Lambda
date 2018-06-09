@@ -124,6 +124,31 @@ namespace Ambasada.Model
 
             }
         }
+        public static async void posaljiEmail(Email a)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders
+                    .Accept
+                    .Add(new MediaTypeWithQualityHeaderValue("application/json"));//ACCEPT header
+
+                var json = JsonConvert.SerializeObject(a);
+
+#pragma warning disable IDE0017 // Simplify object initialization
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, apiUrl + "api/Email" );
+#pragma warning restore IDE0017 // Simplify object initialization
+                request.Content = new StringContent(json,
+                                                    Encoding.UTF8,
+                                                    "application/json");//CONTENT-TYPE header
+
+                await client.SendAsync(request)
+               .ContinueWith(responseTask => {
+                   Console.WriteLine("Response: {0}", responseTask.Result);
+               });
+
+
+            }
+        }
         public static async Task< ObservableCollection<Uposlenik>> DajUposlenike()
         {
             ObservableCollection<Uposlenik> tmp = new ObservableCollection<Uposlenik>();

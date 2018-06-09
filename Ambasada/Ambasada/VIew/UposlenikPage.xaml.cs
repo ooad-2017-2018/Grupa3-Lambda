@@ -52,6 +52,11 @@ namespace Ambasada.VIew
                 kliknuti.stanjePrijave = true;
                 BazaPodatakaHelper.UpdatePrijavu(kliknuti);
                 StatusLabelaPrijave.Text = "Viza je odobrena!";
+                Email a = new Email();
+                a.Subject = "Prihvaćena prijava";
+                a.Address = kliknuti.Podnosilac.email;
+                a.Body = "Poštovani, Vaša prijava za vizu je prihvacena. Javite se tokom sedmice za preuzimanje vize";
+                BazaPodatakaHelper.posaljiEmail(a);
             }
         }
 
@@ -62,6 +67,10 @@ namespace Ambasada.VIew
                 kliknuti.stanjePrijave = false;
                 BazaPodatakaHelper.UpdatePrijavu(kliknuti);
                 StatusLabelaPrijave.Text = "Viza nije odobrena!";
+                a.Subject = "Odbijena prijava";
+                a.Address = kliknuti.Podnosilac.email;
+                a.Body = "Poštovani, Vaša prijava za vizu je nažalost odbijena";
+                BazaPodatakaHelper.posaljiEmail(a);
             }
         }
 

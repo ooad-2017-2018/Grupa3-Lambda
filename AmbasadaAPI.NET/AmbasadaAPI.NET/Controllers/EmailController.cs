@@ -19,7 +19,7 @@ namespace AmbasadaAPI.NET.Controllers
                 SmtpClient smtpClient = new SmtpClient("elektrotehna.tk", 587)
                 {
                     UseDefaultCredentials = false,
-                    Credentials = new System.Net.NetworkCredential("ambasada.elektrotehna", "[PASSWORD]"),
+                    Credentials = new System.Net.NetworkCredential("ambasada.elektrotehna", "[Password]"),
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     EnableSsl = true
                 };
