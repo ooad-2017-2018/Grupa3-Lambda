@@ -133,7 +133,7 @@ namespace Ambasada.Model
                     .Add(new MediaTypeWithQualityHeaderValue("application/json"));//ACCEPT header
 
                 var json = JsonConvert.SerializeObject(a);
-
+                //
 #pragma warning disable IDE0017 // Simplify object initialization
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, apiUrl + "api/Email" );
 #pragma warning restore IDE0017 // Simplify object initialization
