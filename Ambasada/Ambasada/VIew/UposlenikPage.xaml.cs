@@ -56,7 +56,7 @@ namespace Ambasada.VIew
                 a.Subject = "Prihvaćena prijava";
                 a.Address = kliknuti.Podnosilac.email;
                 a.Body = "Poštovani, Vaša prijava za vizu je prihvacena. Javite se tokom sedmice za preuzimanje vize";
-                BazaPodatakaHelper.posaljiEmail(a);
+                BazaPodatakaHelper.PosaljiEmail(a);
             }
         }
 
@@ -71,7 +71,7 @@ namespace Ambasada.VIew
                 a.Subject = "Odbijena prijava";
                 a.Address = kliknuti.Podnosilac.email;
                 a.Body = "Poštovani, Vaša prijava za vizu je nažalost odbijena";
-                BazaPodatakaHelper.posaljiEmail(a);
+                BazaPodatakaHelper.PosaljiEmail(a);
             }
         }
 

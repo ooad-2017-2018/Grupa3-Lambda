@@ -124,7 +124,7 @@ namespace Ambasada.Model
 
             }
         }
-        public static async void posaljiEmail(Email a)
+        public static async void PosaljiEmail(Email a)
         {
             using (var client = new HttpClient())
             {
